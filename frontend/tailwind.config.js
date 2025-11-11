@@ -1,0 +1,74 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50: '#FFF2EB',
+          100: '#FFE3D1',
+          200: '#FFC4A4',
+          300: '#FFA477',
+          400: '#FF874D',
+          500: '#FF6B35',
+          600: '#F05426',
+          700: '#D9411A',
+          800: '#B43316',
+          900: '#7A1E0A'
+        },
+        accent: {
+          aqua: '#00D9FF',
+          gold: '#FFD700',
+          blush: '#FF92C2'
+        },
+        twilight: '#1A2240'
+      },
+      fontFamily: {
+        display: ['"Baloo 2"', ...defaultTheme.fontFamily.sans],
+        body: ['"Poppins"', ...defaultTheme.fontFamily.sans]
+      },
+      borderRadius: {
+        bold: '1.75rem'
+      },
+      boxShadow: {
+        punch: '0 20px 45px rgba(255, 107, 53, 0.4)'
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' }
+        },
+        tilt: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '50%': { transform: 'rotate(4deg)' }
+        },
+        sparkle: {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(0.8)' },
+          '50%': { opacity: '1', transform: 'scale(1.2)' }
+        },
+        bounceLively: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' }
+        },
+        pulseGlow: {
+          '0%': { boxShadow: '0 0 0 0 rgba(0, 217, 255, 0.5)' },
+          '70%': { boxShadow: '0 0 0 25px rgba(0, 217, 255, 0)' },
+          '100%': { boxShadow: '0 0 0 0 rgba(0, 217, 255, 0)' }
+        }
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        tilt: 'tilt 10s ease-in-out infinite',
+        sparkle: 'sparkle 4s ease-in-out infinite',
+        bounceLively: 'bounceLively 3s ease-in-out infinite',
+        pulseGlow: 'pulseGlow 5s ease-in-out infinite'
+      },
+      backgroundImage: {
+        hero: 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 35%, #FFA726 70%, #FFB74D 100%)',
+        section: 'linear-gradient(135deg, #FFF5E6 0%, #FFE0CC 50%, #FFD1A8 100%)'
+      }
+    }
+  },
+  plugins: [require('@tailwindcss/forms')]
+};
