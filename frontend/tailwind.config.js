@@ -66,7 +66,10 @@ module.exports = {
       },
       backgroundImage: {
         hero: 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 35%, #FFA726 70%, #FFB74D 100%)',
-        section: 'linear-gradient(135deg, #FFF5E6 0%, #FFE0CC 50%, #FFD1A8 100%)'
+        section: 'linear-gradient(135deg, #FFF5E6 0%, #FFE0CC 50%, #FFD1A8 100%)',
+        sectionWarm: 'linear-gradient(135deg, #FFF3E6 0%, #FFE0C2 50%, #FFD29E 100%)',
+        sectionSoft: 'linear-gradient(135deg, #FFF7EF 0%, #FFE8D4 50%, #FFDAB6 100%)',
+        sectionDeep: 'linear-gradient(135deg, #FFE3CC 0%, #FFCF9E 50%, #FFB974 100%)'
       }
     }
   },

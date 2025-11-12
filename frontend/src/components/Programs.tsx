@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { programs } from '../data/content';
 
 const Programs = () => (
-  <section id="programs" className="relative overflow-hidden bg-[#FFF0E2] py-24">
+  <section id="programs" className="relative overflow-hidden bg-sectionSoft py-24">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,217,255,0.15),transparent_55%)]" />
     <div className="relative mx-auto max-w-6xl px-4">
       <div className="mb-12 text-center">
@@ -42,7 +42,7 @@ const Programs = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 * index }}
-            className="glass-card group flex flex-col overflow-hidden rounded-[2rem]"
+            className="glass-card neon-card group flex flex-col overflow-hidden rounded-[2rem]"
           >
             <div className="relative h-56 overflow-hidden">
               <motion.img

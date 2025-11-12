@@ -1,4 +1,4 @@
-import { IconType } from 'react-icons';
+import type { IconType } from 'react-icons';
 import {
   FiHeart,
   FiBook,
@@ -126,6 +126,16 @@ export const facilities: FacilityCard[] = [
     title: 'Regular Updates',
     description: 'Daily WhatsApp updates, weekly reviews, and open parent connect.',
     icon: FiBook
+  },
+  {
+    title: 'Extracurricular Activities',
+    description: 'Sunday Activity Club and Evening Tuition for holistic development.',
+    icon: FiStar
+  },
+  {
+    title: 'Balanced Learning and Play',
+    description: 'Perfect blend of structured learning and free play for well-rounded growth.',
+    icon: FiSmile
   }
 ];
 
@@ -198,7 +208,7 @@ export const testimonials = [
 ];
 
 export const contactDetails = {
-  phones: ['+91 99528 33078', '+91 93448 62277'],
+  phones: ['+91 9952833078', '+91 9344862277'],
   email: 'vdps2k25@gmail.com',
   address: 'Haridaspuram Main Road, Hastinapuram, Chitlapakkam - 600064'
 };

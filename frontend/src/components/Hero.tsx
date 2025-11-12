@@ -17,9 +17,9 @@ const Hero = () => (
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="tag-pill w-fit bg-white/90 text-brand-500"
+          className="tag-pill w-fit bg-white/90 text-brand-500 scale-110 sm:scale-125"
         >
-          Welcome to Velicham Daycare &amp; Play School <FiStar className="text-brand-400" />
+          Welcome to Velicham Daycare <FiStar className="text-brand-400" />
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -92,16 +92,7 @@ const Hero = () => (
           animate={{ opacity: [0.4, 0.9, 0.4] }}
           transition={{ duration: 6, repeat: Infinity }}
         />
-        <motion.div
-          className="absolute -bottom-12 left-1/2 hidden w-[140%] -translate-x-1/2 rounded-full bg-white/20 px-10 py-4 text-brand-600 backdrop-blur-xl lg:flex"
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        >
-          <div className="flex items-center gap-4">
-            <FiStar className="h-5 w-5 text-accent-gold" />
-            Nurturing Young Minds Since 2014
-          </div>
-        </motion.div>
+        {/* Removed tagline strip for a cleaner hero */}
       </motion.div>
     </div>
     <div className="absolute inset-x-0 bottom-0 h-16 overflow-hidden bg-white/20 backdrop-blur-lg">

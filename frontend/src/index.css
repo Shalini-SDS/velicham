@@ -11,6 +11,9 @@
   body {
     @apply font-body bg-[#FFF9F3] text-[#1B1B21] antialiased;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   ::selection {
     @apply bg-brand-400 text-white;
   }
@@ -34,6 +37,13 @@
   }
   .glass-card {
     @apply bg-white/85 backdrop-blur-xl border-4 border-white/80 rounded-[1.75rem] shadow-punch;
+  }
+  .neon-card {
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .neon-card:hover {
+    box-shadow: 0 0 0 4px #ffffff, 0 0 24px rgba(0, 217, 255, 0.6), 0 10px 30px rgba(255, 107, 53, 0.35);
+    transform: translateY(-4px);
   }
   .button-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white text-sm bg-gradient-to-r from-brand-500 to-brand-400 hover:from-brand-400 hover:to-brand-300 transition-transform duration-300 hover:-translate-y-1 shadow-lg shadow-brand-500/40 uppercase tracking-wider;

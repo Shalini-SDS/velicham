@@ -4,31 +4,20 @@ import {
   FiMenu,
   FiX,
   FiInstagram,
+  FiFacebook,
   FiYoutube,
-  FiTwitter,
   FiPhone
 } from 'react-icons/fi';
-import { logoUrl, navLinks } from '../data/content';
+import { logoUrl, navLinks, contactDetails } from '../data/content';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="bg-brand-500">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-sm text-white">
-          <span className="font-semibold tracking-wide">
-            Welcome to Velicham Daycare &amp; Play School
-          </span>
-          <a href="tel:+919952833078" className="flex items-center gap-2 font-semibold">
-            <FiPhone className="h-4 w-4" />
-            Call Now
-          </a>
-        </div>
-      </div>
-      <div className="backdrop-blur-xl bg-white/90 shadow-lg shadow-brand-500/10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-3">
+      <div className="backdrop-blur-xl bg-white/95 shadow-lg shadow-brand-500/10">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:h-20">
+          <div className="flex items-center gap-4">
             <img
               src={logoUrl}
               alt="Velicham Daycare"
@@ -36,24 +25,28 @@ const Header = () => {
             />
             <div>
               <p className="font-display text-lg leading-none text-brand-600">Velicham Daycare</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-400">
-                Where Little Hearts Grow
-              </p>
             </div>
           </div>
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-10 lg:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="font-semibold text-brand-600 transition hover:text-brand-400"
+                className="font-semibold text-brand-600 transition hover:text-brand-400 whitespace-nowrap px-1"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             <div className="flex items-center gap-3 text-brand-500">
+              <a
+                href="https://facebook.com"
+                aria-label="Facebook"
+                className="rounded-full bg-white/90 p-2 shadow-md transition hover:-translate-y-1 hover:text-brand-400"
+              >
+                <FiFacebook />
+              </a>
               <a
                 href="https://instagram.com"
                 aria-label="Instagram"
@@ -68,20 +61,8 @@ const Header = () => {
               >
                 <FiYoutube />
               </a>
-              <a
-                href="https://twitter.com"
-                aria-label="Twitter"
-                className="rounded-full bg-white/90 p-2 shadow-md transition hover:-translate-y-1 hover:text-brand-400"
-              >
-                <FiTwitter />
-              </a>
             </div>
-            <a href="#enquiry" className="button-secondary">
-              Enquiry
-            </a>
-            <a href="#enquiry" className="button-primary">
-              Enroll Now
-            </a>
+            <a href="#enquiry" className="button-secondary">Enquiry</a>
           </div>
           <button
             onClick={() => setOpen((value) => !value)}
@@ -112,22 +93,17 @@ const Header = () => {
                 </a>
               ))}
               <div className="flex gap-3 pt-2">
-                <a href="#enquiry" className="button-secondary flex-1">
-                  Enquiry
-                </a>
-                <a href="#enquiry" className="button-primary flex-1">
-                  Enroll
-                </a>
+                <a href="#enquiry" className="button-secondary flex-1">Enquiry</a>
               </div>
               <div className="flex items-center justify-center gap-4 text-brand-500">
+                <a href="https://facebook.com" aria-label="Facebook">
+                  <FiFacebook className="h-5 w-5" />
+                </a>
                 <a href="https://instagram.com" aria-label="Instagram">
                   <FiInstagram className="h-5 w-5" />
                 </a>
                 <a href="https://youtube.com" aria-label="YouTube">
                   <FiYoutube className="h-5 w-5" />
-                </a>
-                <a href="https://twitter.com" aria-label="Twitter">
-                  <FiTwitter className="h-5 w-5" />
                 </a>
               </div>
             </div>

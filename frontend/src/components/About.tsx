@@ -7,7 +7,7 @@ const aboutImages = [
 ];
 
 const About = () => (
-  <section id="about" className="relative overflow-hidden bg-section py-24">
+  <section id="about" className="relative overflow-hidden bg-sectionWarm py-24">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.4),transparent_55%)]" />
     <div className="relative mx-auto max-w-6xl px-4">
       <div className="grid gap-14 lg:grid-cols-[1.1fr,0.9fr]">
@@ -48,7 +48,7 @@ const About = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index }}
-                className="glass-card group flex flex-col gap-3 rounded-bold p-5"
+                className="glass-card neon-card group flex flex-col gap-3 rounded-bold p-5"
               >
                 <div className="flex items-center gap-3">
                   <span className="rounded-full bg-accent-aqua/20 p-3 text-brand-500 transition group-hover:scale-110">
