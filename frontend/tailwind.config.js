@@ -6,16 +6,16 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          50: '#FFF2EB',
-          100: '#FFE3D1',
-          200: '#FFC4A4',
-          300: '#FFA477',
-          400: '#FF874D',
-          500: '#FF6B35',
-          600: '#F05426',
-          700: '#D9411A',
-          800: '#B43316',
-          900: '#7A1E0A'
+          50: '#FFF9F5',
+          100: '#FFEAE0',
+          200: '#FFD4BB',
+          300: '#FFBA8E',
+          400: '#FF9D5C',
+          500: '#FF7D2E',
+          600: '#FF6B1A',
+          700: '#E5540A',
+          800: '#C64205',
+          900: '#8B2C00'
         },
         accent: {
           aqua: '#00D9FF',
@@ -26,7 +26,8 @@ module.exports = {
       },
       fontFamily: {
         display: ['"Baloo 2"', ...defaultTheme.fontFamily.sans],
-        body: ['"Poppins"', ...defaultTheme.fontFamily.sans]
+        body: ['"Poppins"', ...defaultTheme.fontFamily.sans],
+        comfortaa: ['"Comfortaa"', ...defaultTheme.fontFamily.sans]
       },
       borderRadius: {
         bold: '1.75rem'

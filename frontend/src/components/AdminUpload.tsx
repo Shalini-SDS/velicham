@@ -35,7 +35,7 @@ const AdminUpload = () => {
   };
 
   return (
-    <section className="mx-auto my-8 max-w-6xl px-4">
+    <section className="mx-auto my-8 max-w-full px-6 lg:px-8">
       <div className="glass-card rounded-[1.5rem] p-6">
         <h3 className="font-display text-xl text-brand-700">Admin Upload</h3>
         <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">

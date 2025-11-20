@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { aboutHighlights } from '../data/content';
 
 const WhyChoose = () => (
-  <section id="why" className="relative overflow-hidden bg-section py-24">
+  <section id="why" className="relative overflow-hidden bg-section py-24 md:py-32">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_10%,rgba(255,135,77,0.18),transparent_55%)]" />
-    <div className="relative mx-auto max-w-6xl px-4">
-      <div className="mb-12 text-center">
+    <div className="relative mx-auto max-w-full px-6 lg:px-8">
+      <div className="mb-16 text-center">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,12 +18,12 @@ const WhyChoose = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-4 font-display text-3xl text-brand-700 sm:text-4xl"
+          className="mt-4 font-display text-3xl text-brand-600 sm:text-4xl md:text-5xl"
         >
           Cultivating Happy, Confident Learners
         </motion.h2>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {aboutHighlights.map((item, index) => (
           <motion.div
             key={item.title}

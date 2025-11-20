@@ -1,11 +1,38 @@
 import { motion } from 'framer-motion';
 import { programs } from '../data/content';
+import Divider from './Divider';
 
 const Programs = () => (
-  <section id="programs" className="relative overflow-hidden bg-sectionSoft py-24">
+  <>
+    <section id="programs" className="relative overflow-hidden bg-sectionSoft py-24 md:py-32">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,217,255,0.15),transparent_55%)]" />
-    <div className="relative mx-auto max-w-6xl px-4">
-      <div className="mb-12 text-center">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,125,46,0.08),transparent_55%)]" />
+    
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <motion.div
+        className="absolute right-12 top-32 text-4xl text-yellow-400"
+        animate={{ y: ['0%', '15%', '0%'], scale: [1, 1.15, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        ⭐
+      </motion.div>
+      <motion.div
+        className="absolute left-16 bottom-20 text-5xl text-red-400"
+        animate={{ scale: [1, 1.2, 1], rotate: [0, -15, 0] }}
+        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
+      >
+        ❤️
+      </motion.div>
+      <motion.div
+        className="absolute right-1/3 top-1/2 text-4xl text-purple-300"
+        animate={{ y: ['0%', '-20%', '0%'], scale: [0.9, 1.1, 0.9] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+      >
+        ✨
+      </motion.div>
+    </div>
+    <div className="relative mx-auto max-w-full px-6 lg:px-8">
+      <div className="mb-16 text-center">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +46,7 @@ const Programs = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mt-4 font-display text-3xl text-brand-700 sm:text-4xl"
+          className="mt-4 font-display text-3xl text-brand-600 sm:text-4xl md:text-5xl"
         >
           Programs Designed for Every Child
         </motion.h2>
@@ -28,13 +55,13 @@ const Programs = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mx-auto mt-3 max-w-2xl text-brand-900/75"
+          className="mx-auto mt-4 max-w-2xl text-base text-brand-900/70 sm:text-lg"
         >
           We offer a variety of programs tailored to meet the unique needs and interests of children at
           different ages.
         </motion.p>
       </div>
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-8 md:gap-10 lg:grid-cols-2">
         {programs.map((program, index) => (
           <motion.article
             key={program.title}
@@ -80,7 +107,9 @@ const Programs = () => (
         ))}
       </div>
     </div>
-  </section>
+    </section>
+    <Divider fromColor="#00D9FF" toColor="#FFC857" />
+  </>
 );
 
 export default Programs;

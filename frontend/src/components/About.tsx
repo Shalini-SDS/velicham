@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { aboutHighlights } from '../data/content';
+import Divider from './Divider';
 
 const aboutImages = [
   'https://images.unsplash.com/photo-1502764613149-7f1d229e230f?auto=format&fit=crop&w=600&q=80',
@@ -7,16 +8,41 @@ const aboutImages = [
 ];
 
 const About = () => (
-  <section id="about" className="relative overflow-hidden bg-sectionWarm py-24">
+  <>
+    <section id="about" className="relative overflow-hidden bg-sectionWarm py-24 md:py-32">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.4),transparent_55%)]" />
-    <div className="relative mx-auto max-w-6xl px-4">
-      <div className="grid gap-14 lg:grid-cols-[1.1fr,0.9fr]">
-        <div className="space-y-6">
+    
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <motion.div
+        className="absolute left-12 top-20 text-4xl"
+        animate={{ y: ['0%', '20%', '0%'], scale: [1, 1.15, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        ⭐
+      </motion.div>
+      <motion.div
+        className="absolute right-20 top-40 text-5xl text-pink-400"
+        animate={{ scale: [1, 1.2, 1], rotate: [0, 15, 0] }}
+        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+      >
+        💗
+      </motion.div>
+      <motion.div
+        className="absolute left-1/3 bottom-32 text-4xl text-yellow-300"
+        animate={{ y: ['0%', '-15%', '0%'], scale: [0.9, 1.1, 0.9] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+      >
+        ✨
+      </motion.div>
+    </div>
+    <div className="relative mx-auto max-w-full px-6 lg:px-8">
+      <div className="grid gap-12 md:gap-14 lg:grid-cols-[1.1fr,0.9fr]">
+        <div className="space-y-6 flex flex-col items-center">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="tag-pill bg-white/80"
+            className="tag-pill bg-white/80 mx-auto"
           >
             About Velicham
           </motion.span>
@@ -25,7 +51,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl text-brand-700 sm:text-4xl"
+            className="font-display text-3xl text-brand-700 sm:text-4xl text-center"
           >
             Cultivating Curiosity and Creativity
           </motion.h2>
@@ -34,9 +60,9 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-brand-900/80"
+            className="text-lg text-brand-900/80 text-center"
           >
-            At Velicham Daycare &amp; Play School, we believe every child deserves a nurturing environment where
+            At Velicham Daycare, we believe every child deserves a nurturing environment where
             they can explore, learn, and develop at their own pace. Our experienced educators create a warm,
             safe space filled with joy and discovery.
           </motion.p>
@@ -92,7 +118,9 @@ const About = () => (
         </motion.div>
       </div>
     </div>
-  </section>
+    </section>
+    <Divider fromColor="#FFD4B8" toColor="#00D9FF" />
+  </>
 );
 
 export default About;

@@ -1,11 +1,37 @@
 import { motion } from 'framer-motion';
 import { facilities } from '../data/content';
+import Divider from './Divider';
 
 const Facilities = () => (
-  <section id="why" className="relative overflow-hidden bg-sectionDeep py-24">
+  <>
+    <section id="why" className="relative overflow-hidden bg-sectionDeep py-24 md:py-32">
     <div className="absolute inset-0 bg-[radial-gradient(90%_90%_at_0%_0%,rgba(255,183,77,0.25),transparent)]" />
-    <div className="relative mx-auto max-w-6xl px-4">
-      <div className="mb-12 text-center">
+    
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <motion.div
+        className="absolute left-20 top-40 text-5xl"
+        animate={{ y: ['0%', '20%', '0%'], scale: [1, 1.2, 1] }}
+        transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        ⭐
+      </motion.div>
+      <motion.div
+        className="absolute right-16 bottom-32 text-5xl text-orange-400"
+        animate={{ scale: [1, 1.25, 1], rotate: [0, 20, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
+      >
+        💛
+      </motion.div>
+      <motion.div
+        className="absolute right-1/4 top-1/3 text-4xl text-lime-300"
+        animate={{ y: ['0%', '-18%', '0%'], scale: [0.9, 1.1, 0.9] }}
+        transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+      >
+        ✨
+      </motion.div>
+    </div>
+    <div className="relative mx-auto max-w-full px-6 lg:px-8">
+      <div className="mb-16 text-center">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,12 +44,12 @@ const Facilities = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-4 font-display text-3xl text-brand-700 sm:text-4xl"
+          className="mt-4 font-display text-3xl text-brand-600 sm:text-4xl md:text-5xl"
         >
           Top-notch Facilities
         </motion.h2>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {facilities.map((item, index) => {
           const color =
             index % 3 === 0 ? 'border-accent-gold' : index % 3 === 1 ? 'border-accent-aqua' : 'border-accent-blush';
@@ -48,7 +74,9 @@ const Facilities = () => (
         })}
       </div>
     </div>
-  </section>
+    </section>
+    <Divider fromColor="#FFC857" toColor="#FFE5D9" />
+  </>
 );
 
 export default Facilities;

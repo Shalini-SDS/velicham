@@ -14,13 +14,16 @@ export async function sendEnquiry(req, res) {
       }
     });
 
+    const toAddress = process.env.EMAIL_TO || 'vdps2k25@gmail.com';
+
     const info = await transporter.sendMail({
       from: `Velicham Website <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
+      to: toAddress,
       subject: 'New Enquiry from Velicham Website',
       html: `<h2>New Enquiry</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Child:</strong> ${childName || '-'} (${age || '-'})</p>
+      <p><strong>Parent Name:</strong> ${name}</p>
+      <p><strong>Child Name:</strong> ${childName || '-'}</p>
+      <p><strong>Child Age:</strong> ${age || '-'}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>Message:</strong><br/>${message || '-'}</p>`

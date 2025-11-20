@@ -23,14 +23,13 @@ export const navLinks = [
 ];
 
 export const marqueeTopics = [
-  'Outdoor Play',
+  'Indoor Play',
   'Creative Learning',
   'Happy Kids',
   'Safe Environment',
   'Expert Teachers',
   'Fun Activities',
-  'Music & Dance',
-  'Healthy Meals'
+  'Music & Dance'
 ];
 
 export const heroStats = [
@@ -57,16 +56,6 @@ export const programs: ProgramCard[] = [
     accent: 'gold',
     image:
       'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80'
-  },
-  {
-    title: 'Playgroup',
-    ageRange: 'Ages 1.5 - 3 years',
-    description:
-      'Play-based adventures that build motor skills, social confidence, and language sparks.',
-    icon: FiSmile,
-    accent: 'aqua',
-    image:
-      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80'
   },
   {
     title: 'Evening Tuition',
@@ -169,12 +158,12 @@ export const aboutHighlights: Highlight[] = [
 ];
 
 export const dailySchedule = [
-  { time: '8:00 AM', title: 'Welcome & Free Play' },
-  { time: '9:00 AM', title: 'Snack Time' },
-  { time: '9:30 AM', title: 'Learning Activities' },
-  { time: '11:00 AM', title: 'Outdoor Play' },
-  { time: '12:00 PM', title: 'Lunch Time' },
-  { time: '1:00 PM', title: 'Rest & Story Time' }
+  { time: '8:00 AM', title: 'Welcome & Free Play', emoji: '👋', color: 'pastelYellow' },
+  { time: '9:00 AM', title: 'Snack Time', emoji: '🍎', color: 'pastelPink' },
+  { time: '9:30 AM', title: 'Learning Activities', emoji: '📚', color: 'pastelBlue' },
+  { time: '11:00 AM', title: 'Outdoor Play', emoji: '🌞', color: 'pastelYellow' },
+  { time: '12:00 PM', title: 'Lunch Time', emoji: '🍽️', color: 'pastelPink' },
+  { time: '1:00 PM', title: 'Rest & Story Time', emoji: '😴', color: 'pastelBlue' }
 ];
 
 export const galleryImages = [
@@ -186,24 +175,54 @@ export const galleryImages = [
   'https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&w=900&q=80'
 ];
 
-export const testimonials = [
+type Testimonial = {
+  quote: string;
+  name: string;
+  relation: string;
+  rating: number;
+  image: string;
+};
+
+export const testimonials: Testimonial[] = [
   {
     quote:
-      'Velicham Daycare wraps every child in warmth. My daughter blooms with confidence and joy every single day.',
-    name: 'Priya Narayanan',
-    relation: 'Mother of Aanya (4)'
+      'Velicham has been a blessing for our family! Aaron has grown so much in confidence and creativity. The teachers are incredibly caring and the facility is immaculate.',
+    name: 'Priya Sharma',
+    relation: 'Mother of Aaron (5 years)',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=80'
   },
   {
     quote:
-      'From wholesome meals to loving teachers, their attention to detail sets them apart. Highly recommended.',
-    name: 'Rahul Sharma',
-    relation: 'Father of Arjun (6)'
+      'From wholesome meals to loving teachers, their attention to detail sets them apart. My son never wants to leave! Highly recommended.',
+    name: 'Rahul Patel',
+    relation: 'Father of Arjun (6 years)',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
   },
   {
     quote:
-      'The Sunday club is a huge hit. The creative workshops have sparked so much curiosity in my son.',
-    name: 'Sindhu S',
-    relation: 'Mother of Dev (7)'
+      'The Sunday Activity Club is the highlight of our week! Dev has discovered talents we never knew he had. Every class is filled with joy and learning.',
+    name: 'Sindhu V',
+    relation: 'Mother of Dev (7 years)',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80'
+  },
+  {
+    quote:
+      'What sets Velicham apart is the personalized attention and genuine love they show each child. The daily updates keep us connected and stress-free.',
+    name: 'Arun Kumar',
+    relation: 'Father of Aditya (4 years)',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80'
+  },
+  {
+    quote:
+      'My daughter comes home excited every single day. She talks about the teachers, the activities, and her friends. That says everything about Velicham!',
+    name: 'Meera Desai',
+    relation: 'Mother of Priya (5 years)',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
   }
 ];
 

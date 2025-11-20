@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import Divider from './Divider';
 
 const Gallery = () => {
   const [active, setActive] = useState<string | null>(null);
@@ -15,9 +16,34 @@ const Gallery = () => {
   }, []);
 
   return (
-    <section id="gallery" className="relative overflow-hidden bg-sectionSoft py-24">
+    <>
+      <section id="gallery" className="relative overflow-hidden bg-sectionSoft py-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,217,255,0.12),transparent_55%)]" />
-      <div className="relative mx-auto max-w-6xl px-4">
+      
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute right-20 top-24 text-5xl text-yellow-400"
+          animate={{ y: ['0%', '18%', '0%'], scale: [1, 1.2, 1] }}
+          transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          ⭐
+        </motion.div>
+        <motion.div
+          className="absolute left-12 bottom-40 text-5xl text-pink-300"
+          animate={{ scale: [1, 1.25, 1], rotate: [0, -18, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+        >
+          💖
+        </motion.div>
+        <motion.div
+          className="absolute left-1/2 top-1/2 text-4xl text-blue-300"
+          animate={{ y: ['0%', '-20%', '0%'], scale: [0.9, 1.1, 0.9] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        >
+          ✨
+        </motion.div>
+      </div>
+      <div className="relative mx-auto max-w-full px-6 lg:px-8">
         <div className="mb-10 text-center">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
@@ -51,9 +77,28 @@ const Gallery = () => {
             </motion.button>
           ))}
           {!images.length && (
-            <p className="col-span-full text-center text-brand-700/70">
-              No photos uploaded yet. Add some from the Admin Upload box.
-            </p>
+            <div className="col-span-full space-y-6 py-12 text-center">
+              <p className="text-2xl font-semibold text-brand-600">No photos yet!</p>
+              <div className="mx-auto max-w-md space-y-4 rounded-2xl bg-white/60 p-6 backdrop-blur-sm">
+                <p className="text-brand-700/80">
+                  <strong>To upload photos to the gallery:</strong>
+                </p>
+                <ol className="space-y-2 text-left text-sm text-brand-700/75">
+                  <li className="flex gap-3">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500 text-white text-xs font-bold flex-shrink-0">1</span>
+                    <span>Go to the Admin Upload section</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500 text-white text-xs font-bold flex-shrink-0">2</span>
+                    <span>Select and upload your photos</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500 text-white text-xs font-bold flex-shrink-0">3</span>
+                    <span>Photos will appear here in the gallery</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
           )}
         </div>
       </div>
@@ -78,7 +123,9 @@ const Gallery = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+      </section>
+      <Divider fromColor="#FFE5D9" toColor="#FFB3D9" />
+    </>
   );
 };
 
