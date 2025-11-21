@@ -4,6 +4,8 @@ const AdminUpload = () => {
   const [file, setFile] = useState<File | null>(null);
   const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -13,13 +15,17 @@ const AdminUpload = () => {
     setIsAdmin(localStorage.getItem('isAdmin') === 'true');
   }, []);
 
-  const disabled = useMemo(() => !file, [file]);
+  const disabled = useMemo(() => !file || isLoading, [file, isLoading]);
 
   if (!isAdmin) return null;
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!file) return;
+    
+    setIsLoading(true);
+    setError(null);
+    
     const data = new FormData();
     data.append('photo', file);
     try {
@@ -28,9 +34,15 @@ const AdminUpload = () => {
       if (res.ok) {
         setUploadedUrl(json.url);
         setFile(null);
+        setTimeout(() => setUploadedUrl(null), 3000);
+      } else {
+        setError(json.error || 'Upload failed');
       }
     } catch (err) {
+      setError('Upload failed: ' + String(err));
       console.error('Upload failed:', err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,7 +71,8 @@ const AdminUpload = () => {
             Exit Admin
           </button>
         </form>
-        {uploadedUrl && <p className="mt-3 text-sm text-brand-700">Uploaded: {uploadedUrl}</p>}
+        {error && <p className="mt-3 text-sm text-red-600">Error: {error}</p>}
+        {uploadedUrl && <p className="mt-3 text-sm text-green-600">✓ Uploaded: {uploadedUrl}</p>}
       </div>
     </section>
   );

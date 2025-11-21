@@ -5,15 +5,43 @@ import Divider from './Divider';
 const Gallery = () => {
   const [active, setActive] = useState<string | null>(null);
   const [images, setImages] = useState<string[]>([]);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch('/api/photos')
-      .then((r) => r.json())
-      .then((urls) => {
-        if (Array.isArray(urls) && urls.length) setImages(urls);
-      })
-      .catch(() => {});
+    setIsAdmin(localStorage.getItem('isAdmin') === 'true');
   }, []);
+
+  useEffect(() => {
+    const fetchPhotos = () => {
+      fetch('/api/photos')
+        .then((r) => r.json())
+        .then((urls) => {
+          if (Array.isArray(urls) && urls.length) setImages(urls);
+        })
+        .catch((err) => console.error('Failed to fetch photos:', err));
+    };
+
+    fetchPhotos();
+    const interval = setInterval(fetchPhotos, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const deletePhoto = async (src: string) => {
+    if (!window.confirm('Delete this photo?')) return;
+    try {
+      const res = await fetch('/api/photos/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: src })
+      });
+      if (res.ok) {
+        setImages(images.filter(img => img !== src));
+      }
+    } catch (err) {
+      console.error('Delete failed:', err);
+    }
+  };
 
   return (
     <>
@@ -45,61 +73,59 @@ const Gallery = () => {
       </div>
       <div className="relative mx-auto max-w-full px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="tag-pill mx-auto"
-          >
-            Happy Moments
-          </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-4 font-display text-3xl text-brand-700 sm:text-4xl"
+            className="mt-4 font-display text-4xl sm:text-5xl"
           >
-            Gallery
+            <span className="text-slate-700">Moments of </span>
+            <span className="text-brand-600">Joy & Learning</span>
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
+          >
+            Capturing the beautiful moments of growth, creativity, and happiness at Velicham.
+          </motion.p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {(images.length ? images : []).map((src, index) => (
-            <motion.button
-              key={src}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.06 * index }}
-              onClick={() => setActive(src)}
-              className="gradient-ring overflow-hidden"
-            >
-              <img src={src} alt="Velicham memory" className="h-56 w-full rounded-[1.75rem] object-cover transition hover:scale-105" />
-            </motion.button>
-          ))}
-          {!images.length && (
-            <div className="col-span-full space-y-6 py-12 text-center">
-              <p className="text-2xl font-semibold text-brand-600">No photos yet!</p>
-              <div className="mx-auto max-w-md space-y-4 rounded-2xl bg-white/60 p-6 backdrop-blur-sm">
-                <p className="text-brand-700/80">
-                  <strong>To upload photos to the gallery:</strong>
-                </p>
-                <ol className="space-y-2 text-left text-sm text-brand-700/75">
-                  <li className="flex gap-3">
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500 text-white text-xs font-bold flex-shrink-0">1</span>
-                    <span>Go to the Admin Upload section</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500 text-white text-xs font-bold flex-shrink-0">2</span>
-                    <span>Select and upload your photos</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500 text-white text-xs font-bold flex-shrink-0">3</span>
-                    <span>Photos will appear here in the gallery</span>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          )}
+        <div className="flex justify-center">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-5xl">
+            {(images.length ? images : []).map((src, index) => (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.06 * index }}
+                className="gradient-ring overflow-hidden relative group"
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
+                <button
+                  onClick={() => setActive(src)}
+                  className="w-full aspect-square overflow-hidden rounded-[1.75rem] shadow-lg shadow-brand-500/20 hover:shadow-2xl hover:shadow-brand-500/40 transition-all duration-300"
+                >
+                  <img 
+                    src={src} 
+                    alt="Velicham memory" 
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                  />
+                </button>
+                {isAdmin && (
+                  <button
+                    onClick={() => deletePhoto(src)}
+                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition"
+                    title="Delete photo"
+                  >
+                    ✕
+                  </button>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 

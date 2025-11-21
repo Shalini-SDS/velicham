@@ -32,6 +32,10 @@ const Testimonials = () => {
   };
 
   const current = testimonials[currentIndex];
+  const firstLetter = current.name.charAt(0).toUpperCase();
+  const colors = ['#FF7A3D', '#00D9FF', '#FFB3D9', '#FFD700', '#87CEEB', '#98FB98', '#FF6B9D'];
+  const colorIndex = current.name.charCodeAt(0) % colors.length;
+  const bgColor = colors[colorIndex];
 
   return (
     <>
@@ -103,12 +107,13 @@ const Testimonials = () => {
                     className="flex flex-col items-center justify-center"
                   >
                     <div className="relative mb-6">
-                      <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-brand-400 to-brand-300 opacity-30 blur" />
-                      <img
-                        src={current.image}
-                        alt={current.name}
-                        className="relative h-40 w-40 rounded-full object-cover shadow-xl"
-                      />
+                      <div className="absolute -inset-2 rounded-full opacity-30 blur" style={{ backgroundColor: bgColor }} />
+                      <div
+                        className="relative h-40 w-40 rounded-full shadow-xl flex items-center justify-center"
+                        style={{ backgroundColor: bgColor }}
+                      >
+                        <span className="text-6xl font-bold text-white">{firstLetter}</span>
+                      </div>
                       <motion.div
                         className="absolute -bottom-3 -right-3 rounded-full bg-brand-500 p-3 shadow-lg"
                         animate={{ scale: [1, 1.1, 1] }}

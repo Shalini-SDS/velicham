@@ -3,8 +3,8 @@ import { aboutHighlights } from '../data/content';
 import Divider from './Divider';
 
 const aboutImages = [
-  'https://images.unsplash.com/photo-1502764613149-7f1d229e230f?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=600&q=80'
+  '/kids-at-velicham.jpg',
+  '/summer-camp.jpg'
 ];
 
 const About = () => (

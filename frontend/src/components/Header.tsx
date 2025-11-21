@@ -5,9 +5,10 @@ import {
   FiX,
   FiInstagram,
   FiYoutube,
-  FiFacebook
+  FiFacebook,
+  FiMessageCircle
 } from 'react-icons/fi';
-import { logoUrl, navLinks, contactDetails } from '../data/content';
+import { logoUrl, navLinks } from '../data/content';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -40,25 +41,40 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-5 flex-shrink-0">
             <div className="flex items-center gap-3 text-white">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/velicham_daycare"
                 aria-label="Instagram"
                 className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FiInstagram className="h-5 w-5" />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://youtube.com/@velichamdaycare?si=k_xM28rPtlVtuJI4"
                 aria-label="YouTube"
                 className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FiYoutube className="h-5 w-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1FAhQveUHo/"
                 aria-label="Facebook"
                 className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FiFacebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://wa.me/919952833078"
+                aria-label="WhatsApp"
+                className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiMessageCircle className="h-5 w-5" />
               </a>
             </div>
             <a href="#enquiry" className="bg-white text-[#FF7A3D] px-5 py-1.5 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_12px_#FF5C0A] whitespace-nowrap">
@@ -97,14 +113,17 @@ const Header = () => {
                 Enquiry
               </a>
               <div className="flex items-center justify-center gap-6 text-white pt-4">
-                <a href="https://instagram.com" aria-label="Instagram" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]">
+                <a href="https://www.instagram.com/velicham_daycare" aria-label="Instagram" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
                   <FiInstagram className="h-5 w-5" />
                 </a>
-                <a href="https://youtube.com" aria-label="YouTube" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]">
+                <a href="https://youtube.com/@velichamdaycare?si=k_xM28rPtlVtuJI4" aria-label="YouTube" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
                   <FiYoutube className="h-5 w-5" />
                 </a>
-                <a href="https://facebook.com" aria-label="Facebook" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]">
+                <a href="https://www.facebook.com/share/1FAhQveUHo/" aria-label="Facebook" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
                   <FiFacebook className="h-5 w-5" />
+                </a>
+                <a href="https://wa.me/919952833078" aria-label="WhatsApp" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
+                  <FiMessageCircle className="h-5 w-5" />
                 </a>
               </div>
             </div>

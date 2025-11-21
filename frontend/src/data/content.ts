@@ -10,8 +10,7 @@ import {
   FiStar
 } from 'react-icons/fi';
 
-export const logoUrl =
-  'https://i.imgur.com/0nMF0E1.png';
+export const logoUrl = '/logo.jpg';
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
@@ -180,49 +179,22 @@ type Testimonial = {
   name: string;
   relation: string;
   rating: number;
-  image: string;
 };
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Velicham has been a blessing for our family! Aaron has grown so much in confidence and creativity. The teachers are incredibly caring and the facility is immaculate.',
-    name: 'Priya Sharma',
-    relation: 'Mother of Aaron (5 years)',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=80'
+      'Velicham has been a blessing for our family! Hasvitha has grown so much in confidence and creativity. The teachers are incredibly caring and the facility is immaculate.',
+    name: 'Priyanka',
+    relation: 'Mother of Hasvitha',
+    rating: 5
   },
   {
     quote:
       'From wholesome meals to loving teachers, their attention to detail sets them apart. My son never wants to leave! Highly recommended.',
-    name: 'Rahul Patel',
-    relation: 'Father of Arjun (6 years)',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
-  },
-  {
-    quote:
-      'The Sunday Activity Club is the highlight of our week! Dev has discovered talents we never knew he had. Every class is filled with joy and learning.',
-    name: 'Sindhu V',
-    relation: 'Mother of Dev (7 years)',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80'
-  },
-  {
-    quote:
-      'What sets Velicham apart is the personalized attention and genuine love they show each child. The daily updates keep us connected and stress-free.',
-    name: 'Arun Kumar',
-    relation: 'Father of Aditya (4 years)',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80'
-  },
-  {
-    quote:
-      'My daughter comes home excited every single day. She talks about the teachers, the activities, and her friends. That says everything about Velicham!',
-    name: 'Meera Desai',
-    relation: 'Mother of Priya (5 years)',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
+    name: 'Prabakaran',
+    relation: 'Father of Mukilamuthan',
+    rating: 5
   }
 ];
 
@@ -233,9 +205,10 @@ export const contactDetails = {
 };
 
 export const socialLinks = [
-  { name: 'Instagram', href: 'https://instagram.com' },
-  { name: 'YouTube', href: 'https://youtube.com' },
-  { name: 'Twitter/X', href: 'https://twitter.com' }
+  { name: 'Instagram', href: 'https://www.instagram.com/velicham_daycare' },
+  { name: 'YouTube', href: 'https://youtube.com/@velichamdaycare?si=k_xM28rPtlVtuJI4' },
+  { name: 'Facebook', href: 'https://www.facebook.com/share/1FAhQveUHo/' },
+  { name: 'WhatsApp', href: 'https://wa.me/919952833078' }
 ];
 
 export const callToAction = {

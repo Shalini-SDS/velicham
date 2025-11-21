@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion';
-import { FiStar, FiCloud } from 'react-icons/fi';
-import { heroStats, marqueeTopics } from '../data/content';
+import { FiStar } from 'react-icons/fi';
+import { marqueeTopics } from '../data/content';
 import Divider from './Divider';
-
-const heroImage =
-  'https://images.unsplash.com/photo-1588075605001-9fb0ca7187d9?auto=format&fit=crop&w=1200&q=80';
 
 const Hero = () => (
   <>
@@ -14,35 +11,15 @@ const Hero = () => (
   >
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#FFD1A8_0%,transparent_60%)] opacity-50" />
     
-    <motion.div
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.1 }}
-      className="relative mx-auto mb-8 flex max-w-full justify-center px-6 lg:px-8"
-    >
-      <div className="w-full max-w-sm">
-        <img
-          src="/velicham-logo.svg"
-          alt="Velicham Daycare"
-          className="w-full drop-shadow-2xl"
-        />
-      </div>
-      <motion.div
-        className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-5xl"
-        animate={{ y: [-20, 10, -20], scale: [0.8, 1.2, 0.8] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        ✨
-      </motion.div>
-    </motion.div>
 
-    <div className="relative mx-auto flex max-w-full flex-col items-start gap-12 px-6 lg:px-8 pb-24 lg:flex-row lg:items-end lg:pb-28">
-      <div className="relative z-10 max-w-xl space-y-6">
+
+    <div className="relative mx-auto flex max-w-full flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 pb-24 lg:pb-28">
+      <div className="relative z-10 max-w-xl space-y-6 flex-1">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative w-fit mx-auto"
+          className="relative w-fit"
         >
           <motion.div
             className="absolute -inset-3 bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 rounded-full blur-lg"
@@ -59,7 +36,7 @@ const Hero = () => (
           >
 
             <motion.span 
-              className="flex items-center justify-center gap-4 text-2xl sm:text-3xl lg:text-4xl font-black whitespace-nowrap"
+              className="flex items-center justify-start gap-4 text-2xl sm:text-3xl lg:text-4xl font-black whitespace-nowrap"
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
@@ -83,7 +60,7 @@ const Hero = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="relative w-fit mx-auto font-display text-5xl font-black leading-tight sm:text-6xl lg:text-7xl"
+          className="relative font-display text-5xl font-black leading-tight sm:text-6xl lg:text-7xl"
         >
           Crafting <span className="text-accent-gold">Bright Futures</span> Every Day
         </motion.h1>
@@ -111,30 +88,31 @@ const Hero = () => (
         </motion.div>
 
       </div>
+
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.7 }}
-        className="relative w-full max-w-lg"
+        transition={{ delay: 0.2, duration: 0.8 }}
+        className="relative flex-1 w-full max-w-lg lg:max-w-2xl lg:ml-auto"
       >
-        <div className="gradient-ring">
+        <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
           <img
-            src={heroImage}
-            alt="Happy children learning"
-            className="h-full w-full rounded-[1.75rem] object-cover"
+            src="/home.jpg"
+            alt="Velicham Daycare Activities"
+            className="w-full h-auto object-cover"
           />
         </div>
         <motion.div
-          className="absolute -left-10 top-12 hidden h-20 w-20 rounded-full bg-accent-aqua/80 blur-2xl lg:block"
-          animate={{ opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute -right-12 bottom-20 hidden h-24 w-24 rounded-3xl bg-accent-gold/70 blur-xl lg:block"
-          animate={{ opacity: [0.4, 0.9, 0.4] }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
-        {/* Removed tagline strip for a cleaner hero */}
+          className="absolute -top-6 -right-6 bg-accent-gold text-white rounded-2xl p-4 shadow-xl"
+          animate={{ y: [-10, 10, -10] }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <div className="text-center">
+            <div className="text-2xl">☀️</div>
+            <div className="text-sm font-bold mt-1">Excellence</div>
+          </div>
+        </motion.div>
+
       </motion.div>
     </div>
     <div className="absolute inset-x-0 bottom-0 h-16 overflow-hidden bg-white/20 backdrop-blur-lg">
