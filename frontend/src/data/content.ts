@@ -10,8 +10,8 @@ import {
   FiStar
 } from 'react-icons/fi';
 
-export const logoUrl =
-  'https://i.imgur.com/0nMF0E1.png';
+// Use local logo from `public/logo.jpg` so header displays consistently
+export const logoUrl = '/logo.jpg';
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
