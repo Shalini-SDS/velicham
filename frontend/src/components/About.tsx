@@ -36,13 +36,13 @@ const About = () => (
       </motion.div>
     </div>
     <div className="relative mx-auto max-w-full px-6 lg:px-8">
-      <div className="grid gap-12 md:gap-14 lg:grid-cols-[1.1fr,0.9fr]">
-        <div className="space-y-6 flex flex-col items-center">
+      <div className="grid gap-12 md:gap-14 lg:grid-cols-[1.1fr,0.9fr] items-start">
+        <div className="space-y-6 flex flex-col items-start">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="tag-pill bg-white/80 mx-auto"
+            className="tag-pill bg-white/80"
           >
             About Velicham
           </motion.span>
@@ -51,7 +51,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl text-brand-700 sm:text-4xl text-center"
+            className="font-display text-3xl text-brand-700 sm:text-4xl text-left"
           >
             Cultivating Curiosity and Creativity
           </motion.h2>
@@ -60,7 +60,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-brand-900/80 text-center"
+            className="text-lg text-brand-900/80 text-left"
           >
             At Velicham Daycare, we believe every child deserves a nurturing environment where
             they can explore, learn, and develop at their own pace. Our experienced educators create a warm,

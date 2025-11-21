@@ -10,7 +10,8 @@ import {
   FiStar
 } from 'react-icons/fi';
 
-export const logoUrl = '/logo.jpg';
+export const logoUrl =
+  'https://i.imgur.com/0nMF0E1.png';
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
@@ -50,7 +51,7 @@ export const programs: ProgramCard[] = [
   {
     title: 'Daycare',
     ageRange: 'Ages 1.5 - 6.5 years',
-    description: 'Full-day care with nurturing routines, wholesome meals, and joyful discovery.',
+        description: 'Full-day care with nurturing routines, healthy snacks, and joyful discovery.',
     icon: FiHeart,
     accent: 'gold',
     image:
@@ -102,7 +103,7 @@ export const facilities: FacilityCard[] = [
   },
   {
     title: 'Play Area & AC Comfort',
-    description: 'Indoor and outdoor play with climate control and curated playsets.',
+    description: 'Indoor play with climate control and curated playsets.',
     icon: FiSun
   },
   {
@@ -160,7 +161,7 @@ export const dailySchedule = [
   { time: '8:00 AM', title: 'Welcome & Free Play', emoji: '👋', color: 'pastelYellow' },
   { time: '9:00 AM', title: 'Snack Time', emoji: '🍎', color: 'pastelPink' },
   { time: '9:30 AM', title: 'Learning Activities', emoji: '📚', color: 'pastelBlue' },
-  { time: '11:00 AM', title: 'Outdoor Play', emoji: '🌞', color: 'pastelYellow' },
+  { time: '11:00 AM', title: 'Indoor Play', emoji: '🌞', color: 'pastelYellow' },
   { time: '12:00 PM', title: 'Lunch Time', emoji: '🍽️', color: 'pastelPink' },
   { time: '1:00 PM', title: 'Rest & Story Time', emoji: '😴', color: 'pastelBlue' }
 ];
@@ -179,22 +180,34 @@ type Testimonial = {
   name: string;
   relation: string;
   rating: number;
+  image: string;
 };
 
 export const testimonials: Testimonial[] = [
+  
   {
     quote:
-      'Velicham has been a blessing for our family! Hasvitha has grown so much in confidence and creativity. The teachers are incredibly caring and the facility is immaculate.',
-    name: 'Priyanka',
-    relation: 'Mother of Hasvitha',
-    rating: 5
+      'From wholesome games to loving teachers, their attention to detail sets them apart. My son never wants to leave! Highly recommended.',
+    name: 'Prabhakaran ',
+    relation: 'Father of Mukilamuthan ',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
   },
   {
     quote:
-      'From wholesome meals to loving teachers, their attention to detail sets them apart. My son never wants to leave! Highly recommended.',
-    name: 'Prabakaran',
-    relation: 'Father of Mukilamuthan',
-    rating: 5
+      'The Sunday Activity Club is the highlight of our week! Hasvitha has discovered talents we never knew he had. Every class is filled with joy and learning.',
+    name: 'Priyanka Saravanan',
+    relation: 'Mother of Hasvitha',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80'
+  },
+  {
+    quote:
+      'My daughter comes home excited every single day. She talks about the teachers, the activities, and her friends. That says everything about Velicham!',
+    name: 'Meera ',
+    relation: 'Mother of Varshitha',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
   }
 ];
 
@@ -205,10 +218,9 @@ export const contactDetails = {
 };
 
 export const socialLinks = [
-  { name: 'Instagram', href: 'https://www.instagram.com/velicham_daycare' },
-  { name: 'YouTube', href: 'https://youtube.com/@velichamdaycare?si=k_xM28rPtlVtuJI4' },
-  { name: 'Facebook', href: 'https://www.facebook.com/share/1FAhQveUHo/' },
-  { name: 'WhatsApp', href: 'https://wa.me/919952833078' }
+  { name: 'Instagram', href: 'https://instagram.com' },
+  { name: 'YouTube', href: 'https://youtube.com' },
+  { name: 'Twitter/X', href: 'https://twitter.com' }
 ];
 
 export const callToAction = {
