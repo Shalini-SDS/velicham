@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Divider from './Divider';
+import { apiFetch } from '../lib/api';
 
 type FormState = {
   parentName: string;
@@ -32,7 +33,7 @@ const Enquiry = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/enquiry', {
+      const res = await apiFetch('/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

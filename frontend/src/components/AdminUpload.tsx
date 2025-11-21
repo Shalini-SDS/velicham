@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { apiFetch } from '../lib/api';
 
 const AdminUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -29,7 +30,7 @@ const AdminUpload = () => {
     const data = new FormData();
     data.append('photo', file);
     try {
-      const res = await fetch('/api/photos/upload', { method: 'POST', body: data });
+      const res = await apiFetch('/photos/upload', { method: 'POST', body: data });
       const json = await res.json();
       if (res.ok) {
         setUploadedUrl(json.url);
@@ -51,9 +52,13 @@ const AdminUpload = () => {
       <div className="glass-card rounded-[1.5rem] p-6">
         <h3 className="font-display text-xl text-brand-700">Admin Upload</h3>
         <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <label htmlFor="admin-photo" className="sr-only">Upload photo</label>
           <input
+            id="admin-photo"
             type="file"
             accept="image/*"
+            title="Upload photo"
+            aria-label="Upload photo"
             onChange={(e) => setFile(e.target.files?.[0] || null)}
             className="block rounded-xl border-2 border-white bg-white/90 px-4 py-3 shadow-inner"
           />
