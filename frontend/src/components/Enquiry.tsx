@@ -49,7 +49,7 @@ const Enquiry = () => {
       setSent(true);
       setForm(initial);
       setTimeout(() => setSent(false), 3000);
-    } catch (err) {
+    } catch {
       setSent(true);
       setTimeout(() => setSent(false), 3000);
     }
@@ -73,7 +73,8 @@ const Enquiry = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-4 font-display text-3xl text-brand-600 sm:text-4xl md:text-5xl"
+            transition={{ delay: 0.1 }}
+            className="mt-6 font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
           >
             Submit Enquiry
           </motion.h2>

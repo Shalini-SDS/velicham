@@ -13,7 +13,7 @@ const Hero = () => (
     
 
 
-    <div className="relative mx-auto flex max-w-full flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 pb-24 lg:pb-28">
+    <div className="relative mx-auto flex max-w-full flex-col lg:flex-row items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 lg:pb-28">
       <div className="relative z-10 max-w-xl space-y-6 flex-1">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -36,7 +36,7 @@ const Hero = () => (
           >
 
             <motion.span 
-              className="flex items-center justify-start gap-4 text-2xl sm:text-3xl lg:text-4xl font-black whitespace-nowrap"
+              className="flex items-center justify-start gap-2 sm:gap-4 text-lg sm:text-2xl lg:text-4xl font-black flex-wrap"
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
@@ -60,7 +60,7 @@ const Hero = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="relative font-display text-5xl font-black leading-tight sm:text-6xl lg:text-7xl"
+          className="relative font-display text-3xl sm:text-4xl lg:text-6xl font-black leading-tight"
         >
           Crafting <span className="text-accent-gold">Bright Futures</span> Every Day
         </motion.h1>
@@ -68,7 +68,7 @@ const Hero = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-xl sm:text-2xl lg:text-2xl text-white/90 leading-relaxed max-w-lg"
+          className="text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed max-w-lg"
         >
           A learning space where your child grows with love, creativity, and joy. Discover a playful, secure
           environment filled with imagination.

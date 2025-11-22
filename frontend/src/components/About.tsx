@@ -2,11 +2,6 @@ import { motion } from 'framer-motion';
 import { aboutHighlights } from '../data/content';
 import Divider from './Divider';
 
-const aboutImages = [
-  '/kids-at-velicham.jpg',
-  '/summer-camp.jpg'
-];
-
 const About = () => (
   <>
     <section id="about" className="relative overflow-hidden bg-sectionWarm py-24 md:py-32">
@@ -36,8 +31,8 @@ const About = () => (
       </motion.div>
     </div>
     <div className="relative mx-auto max-w-full px-6 lg:px-8">
-      <div className="grid gap-12 md:gap-14 lg:grid-cols-[1.1fr,0.9fr] items-start">
-        <div className="space-y-6 flex flex-col items-start">
+      <div className="flex justify-center">
+        <div className="w-full max-w-6xl space-y-12 flex flex-col items-center text-center">
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,71 +46,73 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl text-brand-700 sm:text-4xl text-left"
+            className="font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
           >
-            Cultivating Curiosity and Creativity
+            Cultivating <span className="text-brand-500">Curiosity and Creativity</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-brand-900/80 text-left"
+            className="text-lg text-brand-900/80 max-w-2xl"
           >
             At Velicham Daycare, we believe every child deserves a nurturing environment where
             they can explore, learn, and develop at their own pace. Our experienced educators create a warm,
             safe space filled with joy and discovery.
           </motion.p>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {aboutHighlights.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
-                className="glass-card neon-card group flex flex-col gap-3 rounded-bold p-5"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="rounded-full bg-accent-aqua/20 p-3 text-brand-500 transition group-hover:scale-110">
-                    <item.icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="font-semibold text-brand-700">{item.title}</h3>
-                </div>
-                <p className="text-sm text-brand-700/80">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          <div className="space-y-6">
-            {aboutImages.map((src, index) => (
-              <motion.div
-                key={src}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 * index }}
-                className="gradient-ring"
-              >
-                <img src={src} alt="Kids at Velicham" className="h-64 w-full rounded-[1.75rem] object-cover shadow-xl" />
-              </motion.div>
-            ))}
+          <div className="grid gap-8 w-full lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 max-w-4xl mx-auto">
+            {aboutHighlights.map((item, index) => {
+              const borderColors = [
+                'border-brand-500',
+                'border-accent-aqua',
+                'border-yellow-400',
+                'border-brand-500'
+              ];
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * index }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.12)'
+                  }}
+                  className={`border-4 ${borderColors[index]} rounded-3xl p-8 bg-white/90 backdrop-blur-sm group flex flex-col gap-5 h-full transition-all duration-300 cursor-pointer`}
+                >
+                  <div className="flex justify-center">
+                    <motion.span 
+                      whileHover={{ scale: 1.15, rotate: 10 }}
+                      transition={{ type: 'spring', stiffness: 400 }}
+                      className="rounded-lg bg-accent-aqua/20 p-5 text-brand-500 transition"
+                    >
+                      <item.icon className="h-7 w-7" />
+                    </motion.span>
+                  </div>
+                  <h3 className="font-bold text-brand-700 text-xl">{item.title}</h3>
+                  <p className="text-base text-brand-700/80 flex-grow leading-relaxed">{item.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
           <motion.div
-            className="absolute -right-6 top-14 hidden h-16 w-16 rounded-full border-4 border-white bg-brand-500/80 shadow-lg shadow-brand-500/30 lg:flex items-center justify-center"
-            animate={{ rotate: [0, 6, -6, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="mt-8"
           >
-            <span className="text-sm font-semibold text-white">Love &amp; Care</span>
+            <motion.span
+              className="inline-block tag-pill bg-brand-500 text-white px-6 py-3 text-lg font-semibold"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              ✨ Lighting the path for every child's bright tomorrow ✨
+            </motion.span>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
     </section>

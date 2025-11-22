@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 interface DividerProps {
   fromColor: string;
   toColor: string;
@@ -8,7 +10,13 @@ const Divider = ({ fromColor, toColor }: DividerProps) => {
   const secondaryColor = toColor;
 
   return (
-    <div className="relative h-24 w-full overflow-hidden">
+    <motion.div 
+      className="relative h-24 w-full overflow-hidden"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
       <svg
         viewBox="0 0 1200 100"
         preserveAspectRatio="none"
@@ -22,18 +30,26 @@ const Divider = ({ fromColor, toColor }: DividerProps) => {
           </linearGradient>
         </defs>
         
-        <path
+        <motion.path
           d="M 0 30 Q 300 0 600 30 T 1200 30 L 1200 60 Q 900 90 600 60 T 0 60 Z"
           fill="url(#grad-divider)"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
         />
         
-        <path
+        <motion.path
           d="M 0 50 Q 400 20 800 50 T 1200 50 L 1200 100 L 0 100 Z"
           fill={toColor}
           opacity="0.2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.2 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
         />
       </svg>
-    </div>
+    </motion.div>
   );
 };
 

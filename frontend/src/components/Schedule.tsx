@@ -44,10 +44,16 @@ const Schedule = () => {
       <div className="absolute inset-0 bg-[radial-gradient(90%_90%_at_100%_0%,rgba(255,183,77,0.15),transparent)]" />
       <div className="relative mx-auto max-w-full px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <span className="tag-pill mx-auto">Daily Schedule</span>
-          <h2 className="mt-4 font-display text-3xl text-brand-700 sm:text-4xl">
+          <motion.span className="tag-pill mx-auto" initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>Daily Schedule</motion.span>
+          <motion.h2 
+            className="mt-6 font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
             A Day at <span className="text-accent-gold">Velicham</span>
-          </h2>
+          </motion.h2>
           <p className="mx-auto mt-2 max-w-2xl text-brand-900/75">
             Every day is filled with fun, learning, and new adventures!
           </p>

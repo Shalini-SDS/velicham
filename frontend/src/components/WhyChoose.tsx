@@ -18,7 +18,8 @@ const WhyChoose = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-4 font-display text-3xl text-brand-600 sm:text-4xl md:text-5xl"
+          transition={{ delay: 0.1 }}
+          className="mt-6 font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
         >
           Cultivating Happy, Confident Learners
         </motion.h2>
@@ -31,15 +32,36 @@ const WhyChoose = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.06 * index }}
-            className="glass-card group flex flex-col gap-3 rounded-bold p-6"
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className="glass-card group flex flex-col gap-3 rounded-bold p-6 cursor-pointer transition-shadow hover:shadow-lg"
           >
             <div className="flex items-center gap-3">
-              <span className="rounded-2xl border-4 border-white bg-brand-50 p-3 text-brand-500 shadow-md transition group-hover:scale-110">
+              <motion.span 
+                className="rounded-2xl border-4 border-white bg-brand-50 p-3 text-brand-500 shadow-md"
+                whileHover={{ scale: 1.15, rotate: 10 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+              >
                 <item.icon className="h-5 w-5" />
-              </span>
-              <h3 className="font-semibold text-brand-700">{item.title}</h3>
+              </motion.span>
+              <motion.h3 
+                className="font-semibold text-brand-700 group-hover:text-brand-600 transition-colors"
+                initial={{ opacity: 0, x: -5 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.06 * index + 0.1 }}
+              >
+                {item.title}
+              </motion.h3>
             </div>
-            <p className="text-brand-800/80">{item.description}</p>
+            <motion.p 
+              className="text-brand-800/80"
+              initial={{ opacity: 0, x: -5 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.06 * index + 0.15 }}
+            >
+              {item.description}
+            </motion.p>
           </motion.div>
         ))}
       </div>

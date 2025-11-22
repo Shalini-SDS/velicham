@@ -72,11 +72,12 @@ const Testimonials = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl"
+              transition={{ delay: 0.1 }}
+              className="mt-6 font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
             >
-              <span className="text-brand-800">What </span>
+              <span className="text-brand-600">What </span>
               <span className="text-brand-500">Parents Say</span>
-              <span className="text-brand-800"> About Us</span>
+              <span className="text-brand-600"> About Us</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -160,29 +161,41 @@ const Testimonials = () => {
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute -left-6 top-1/2 -translate-y-1/2 md:-left-16">
+            <motion.div 
+              className="absolute -left-6 top-1/2 -translate-y-1/2 md:-left-16"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
               <motion.button
                 onClick={prev}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.15, rotate: -10 }}
                 whileTap={{ scale: 0.95 }}
                 className="rounded-full bg-brand-500 p-3 text-white shadow-lg transition hover:bg-brand-600"
                 aria-label="Previous testimonial"
               >
                 <FiChevronLeft className="h-6 w-6" />
               </motion.button>
-            </div>
+            </motion.div>
 
-            <div className="absolute -right-6 top-1/2 -translate-y-1/2 md:-right-16">
+            <motion.div 
+              className="absolute -right-6 top-1/2 -translate-y-1/2 md:-right-16"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
               <motion.button
                 onClick={next}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.15, rotate: 10 }}
                 whileTap={{ scale: 0.95 }}
                 className="rounded-full bg-brand-500 p-3 text-white shadow-lg transition hover:bg-brand-600"
                 aria-label="Next testimonial"
               >
                 <FiChevronRight className="h-6 w-6" />
               </motion.button>
-            </div>
+            </motion.div>
           </div>
 
           <div className="mt-12 flex justify-center gap-2">
