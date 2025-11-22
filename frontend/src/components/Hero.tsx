@@ -95,7 +95,7 @@ const Hero = () => (
         transition={{ delay: 0.2, duration: 0.8 }}
         className="relative flex-1 w-full max-w-lg lg:max-w-2xl lg:ml-auto"
       >
-        <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+        <div className="relative rounded-3xl overflow-visible border-4 border-white shadow-2xl">
           <img
             src="/home.jpg"
             alt="Velicham Daycare Activities"
@@ -103,13 +103,13 @@ const Hero = () => (
           />
         </div>
         <motion.div
-          className="absolute -top-6 -right-6 bg-accent-gold text-white rounded-2xl p-4 shadow-xl"
-          animate={{ y: [-10, 10, -10] }}
+          className="absolute top-0 right-0 sm:-top-4 sm:-right-4 lg:-top-6 lg:-right-6 translate-y-0 sm:translate-y-[-20%] lg:translate-y-[-50%] bg-accent-gold text-white rounded-2xl p-3 sm:p-4 shadow-xl"
+          animate={{ y: [-8, 8, -8] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         >
           <div className="text-center">
-            <div className="text-2xl">☀️</div>
-            <div className="text-sm font-bold mt-1">Excellence</div>
+            <div className="text-xl sm:text-2xl">☀️</div>
+            <div className="text-xs sm:text-sm font-bold mt-1">Excellence</div>
           </div>
         </motion.div>
 
