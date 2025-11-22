@@ -35,8 +35,8 @@ const Hero = () => (
             className="relative bg-gradient-to-r from-white to-yellow-50 text-brand-600 px-10 sm:px-16 py-5 sm:py-6 rounded-full shadow-2xl border-3 border-yellow-200"
           >
 
-            <motion.span 
-              className="flex items-center justify-start gap-2 sm:gap-4 text-lg sm:text-2xl lg:text-4xl font-black flex-wrap"
+            <motion.span
+              className="flex items-center justify-start gap-2 sm:gap-4 text-sm sm:text-lg lg:text-xl font-black"
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
@@ -103,7 +103,7 @@ const Hero = () => (
           />
         </div>
         <motion.div
-          className="absolute top-0 right-0 sm:-top-4 sm:-right-4 lg:-top-6 lg:-right-6 translate-y-0 sm:translate-y-[-20%] lg:translate-y-[-50%] bg-accent-gold text-white rounded-2xl p-3 sm:p-4 shadow-xl"
+          className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 lg:-top-6 lg:-right-6 translate-y-0 sm:translate-y-[-20%] lg:translate-y-[-50%] bg-accent-gold text-white rounded-2xl p-3 sm:p-4 shadow-xl"
           animate={{ y: [-8, 8, -8] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         >

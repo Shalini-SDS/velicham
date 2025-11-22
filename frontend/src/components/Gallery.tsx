@@ -87,7 +87,7 @@ const Gallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mt-6 font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
+            className="mt-6 font-display text-4xl sm:text-5xl text-brand-600 font-black leading-tight"
           >
             <span className="text-brand-600">Moments of </span>
             <span className="text-brand-500">Joy & Learning</span>

@@ -58,7 +58,7 @@ const Facilities = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-6 font-display text-5xl sm:text-6xl text-brand-600 font-black leading-tight"
+              className="mt-6 font-display text-4xl sm:text-5xl text-brand-600 font-black leading-tight"
             >
               Top-notch Facilities
             </motion.h2>

@@ -31,7 +31,7 @@ const AdminUpload = () => {
     const data = new FormData();
     data.append('photo', file);
     try {
-      const res = await apiFetch('/api/upload/photo', { method: 'POST', body: data });
+      const res = await apiFetch('/photos/upload', { method: 'POST', body: data });
       const json = await res.json();
       if (res.ok) {
         setUploadedUrl(json.url);
