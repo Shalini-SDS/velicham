@@ -8,7 +8,7 @@ import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Enquiry from './components/Enquiry';
 import Footer from './components/Footer';
-import Schedule from './components/Schedule';
+
 import FloatingWhatsapp from './components/FloatingWhatsapp';
 import AdminUpload from './components/AdminUpload';
 
@@ -21,7 +21,6 @@ function App() {
         <About />
         <Programs />
         <Facilities />
-        <Schedule />
         <Gallery />
         <AdminUpload />
         <Testimonials />

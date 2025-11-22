@@ -17,7 +17,7 @@ const Facilities = () => {
 
   return (
     <>
-      <section id="why" className="relative overflow-hidden bg-sectionDeep py-24 md:py-32">
+      <section id="facilities" className="relative overflow-hidden bg-sectionDeep py-24 md:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(90%_90%_at_0%_0%,rgba(255,183,77,0.25),transparent)]" />
         
         <div className="pointer-events-none absolute inset-0 overflow-hidden">

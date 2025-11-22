@@ -50,8 +50,8 @@ type ProgramCard = {
 export const programs: ProgramCard[] = [
   {
     title: 'Daycare',
-    ageRange: 'Ages 1.5 - 6.5 years',
-        description: 'Full-day care with nurturing routines, healthy snacks, and joyful discovery.',
+    ageRange: 'Ages 1.5 - 6 years',
+        description: 'Full-day care with nurturing routines, engaging activities, and joyful discovery.',
     icon: FiHeart,
     accent: 'gold',
     image:
@@ -59,7 +59,7 @@ export const programs: ProgramCard[] = [
   },
   {
     title: 'Evening Tuition',
-    ageRange: 'Ages 3 - 12 years',
+    ageRange: 'LKG to 6th standard',
     description:
       'Homework guidance and focused support to keep curiosity bright after school.',
     icon: FiBook,
@@ -68,10 +68,10 @@ export const programs: ProgramCard[] = [
       'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80'
   },
   {
-    title: 'Sunday Activity Club',
-    ageRange: 'Ages 3 - 13 years',
+    title: 'Weekend Activity Club',
+    ageRange: 'Ages 3 - 12 years',
     description:
-      'Weekend bursts of art, music, dance, and creative workshops for sparkling talents.',
+      'Weekend bursts of dance, yoga, art and craft, drawing, and creative workshops for sparkling talents.',
     icon: FiStar,
     accent: 'gold',
     image:
@@ -201,14 +201,7 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80'
   },
-  {
-    quote:
-      'My daughter comes home excited every single day. She talks about the teachers, the activities, and her friends. That says everything about Velicham!',
-    name: 'Meera ',
-    relation: 'Mother of Varshitha',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80'
-  }
+
 ];
 
 export const contactDetails = {

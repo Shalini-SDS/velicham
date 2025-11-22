@@ -99,7 +99,7 @@ const Hero = () => (
           <img
             src="/home.jpg"
             alt="Velicham Daycare Activities"
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover rounded-3xl"
           />
         </div>
         <motion.div
