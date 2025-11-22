@@ -54,8 +54,7 @@ export const programs: ProgramCard[] = [
         description: 'Full-day care with nurturing routines, engaging activities, and joyful discovery.',
     icon: FiHeart,
     accent: 'gold',
-    image:
-      'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80'
+    image: '/daycare.jpg'
   },
   {
     title: 'Evening Tuition',
@@ -64,18 +63,16 @@ export const programs: ProgramCard[] = [
       'Homework guidance and focused support to keep curiosity bright after school.',
     icon: FiBook,
     accent: 'blush',
-    image:
-      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80'
+    image: '/evening.jpg'
   },
   {
     title: 'Weekend Activity Club',
     ageRange: 'Ages 3 - 12 years',
     description:
-      'Weekend bursts of dance, yoga, art and craft, drawing, and creative workshops for sparkling talents.',
+      'Weekend bursts of dance, yoga, art and craft, drawing, creative workshops, brain boosting puzzles, and fun games for sparkling talents.',
     icon: FiStar,
     accent: 'gold',
-    image:
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80'
+    image: '/weekend.jpg'
   }
 ];
 
