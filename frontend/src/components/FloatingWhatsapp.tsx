@@ -11,24 +11,17 @@ const FloatingWhatsapp = () => {
   // then fall back to the web URL. This improves chances of opening the
   // correct chat on Windows/macOS if the app is installed.
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Allow the anchor href as fallback for users without JS, but when JS is
-    // enabled, try protocol open first.
     e.preventDefault();
     const appUrl = `whatsapp://send?phone=91${phoneNumber}&text=${message}`;
 
-    try {
-      // Attempt to open the native app
-      const newWindow = window.open(appUrl, '_self');
-      // If the browser blocked or returns null, fallback to web link after delay
-      setTimeout(() => {
-        window.open(href, '_blank');
-      }, 600);
-      // If window.open succeeded to the native app this will navigate away.
-      if (newWindow) return;
-    } catch (err) {
-      // ignore and fallback
-      setTimeout(() => window.open(href, '_blank'), 200);
-    }
+    // Try to open the WhatsApp app using the protocol handler
+    window.location.href = appUrl;
+
+    // If the app isn't installed, the protocol handler will fail silently.
+    // After a short delay, open the web version as a fallback.
+    setTimeout(() => {
+      window.open(href, '_blank');
+    }, 1000);
   };
 
   return (
