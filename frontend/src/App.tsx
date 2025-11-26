@@ -1,4 +1,5 @@
 import './index.css';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,8 +12,20 @@ import Footer from './components/Footer';
 
 import FloatingWhatsapp from './components/FloatingWhatsapp';
 import AdminUpload from './components/AdminUpload';
+import CompetitionPopup from './components/CompetitionPopup';
 
 function App() {
+  const [showCompetitionPopup, setShowCompetitionPopup] = useState(false);
+
+  useEffect(() => {
+    // Show popup after a short delay when the site loads
+    const timer = setTimeout(() => {
+      setShowCompetitionPopup(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Header />
@@ -28,6 +41,10 @@ function App() {
       </main>
       <Footer />
       <FloatingWhatsapp />
+      <CompetitionPopup
+        isOpen={showCompetitionPopup}
+        onClose={() => setShowCompetitionPopup(false)}
+      />
     </>
   );
 }

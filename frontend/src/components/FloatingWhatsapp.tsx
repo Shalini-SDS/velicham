@@ -1,11 +1,36 @@
 import { motion } from 'framer-motion';
 import { FiMessageCircle } from 'react-icons/fi';
-import { contactDetails } from '../data/content';
 
 const FloatingWhatsapp = () => {
-  const fallback = '+919952833078';
-  const displayPhone = contactDetails?.phones?.[0] || fallback;
-  const href = `https://wa.me/${displayPhone.replace(/\\D/g, '')}`;
+  // Use the exact phone number as requested: 9952833078
+  const phoneNumber = '9952833078';
+  const message = encodeURIComponent('Hi Velicham Team, I would like to know more about your services.');
+  const href = `https://wa.me/91${phoneNumber}?text=${message}`;
+
+  // Try opening WhatsApp desktop/mobile app first using the protocol handler,
+  // then fall back to the web URL. This improves chances of opening the
+  // correct chat on Windows/macOS if the app is installed.
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Allow the anchor href as fallback for users without JS, but when JS is
+    // enabled, try protocol open first.
+    e.preventDefault();
+    const appUrl = `whatsapp://send?phone=91${phoneNumber}&text=${message}`;
+
+    try {
+      // Attempt to open the native app
+      const newWindow = window.open(appUrl, '_self');
+      // If the browser blocked or returns null, fallback to web link after delay
+      setTimeout(() => {
+        window.open(href, '_blank');
+      }, 600);
+      // If window.open succeeded to the native app this will navigate away.
+      if (newWindow) return;
+    } catch (err) {
+      // ignore and fallback
+      setTimeout(() => window.open(href, '_blank'), 200);
+    }
+  };
+
   return (
     <motion.div
       className="fixed bottom-5 right-5 z-50"
@@ -15,10 +40,11 @@ const FloatingWhatsapp = () => {
     >
       <motion.a
         href={href}
+        onClick={handleClick}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
+        className="relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -30,7 +56,8 @@ const FloatingWhatsapp = () => {
         </motion.div>
       </motion.a>
       <motion.div
-        className="absolute -inset-2 rounded-full bg-[#25D366]/20"
+        // Decorative pulse should not block clicks, so disable pointer events
+        className="absolute -inset-2 rounded-full bg-[#25D366]/20 pointer-events-none"
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 2, repeat: Infinity }}
       />

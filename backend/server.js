@@ -7,6 +7,7 @@ import fs from 'fs';
 import enquiryRoutes from './routes/enquiry.js';
 import uploadRoutes from './routes/upload.js';
 import photosRoutes from './routes/photos.js';
+import competitionRoutes from './routes/competition.js';
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ app.use('/uploads', express.static(uploadsDir));
 app.use('/api/enquiry', enquiryRoutes);
 app.use('/api/photos', photosRoutes);
 app.use('/api/photos', uploadRoutes); // upload at /api/photos/upload
+app.use('/api/competition', competitionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -59,11 +59,14 @@ export async function sendEnquiry(req, res) {
 
       console.log('Email sent successfully:', info.messageId);
       enquiryData.emailId = info.messageId;
+    } else {
+      console.log('EMAIL_ENABLED is false - skipping email');
     }
 
     return res.json({ success: true, message: 'Enquiry received successfully' });
   } catch (err) {
     console.error('Error processing enquiry:', err.message);
+    console.error('Full error:', err.stack);
     return res.json({ success: true, message: 'Enquiry received and saved' });
   }
 }

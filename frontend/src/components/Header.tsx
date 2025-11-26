@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   FiMenu,
@@ -12,6 +12,23 @@ import { logoUrl, navLinks } from '../data/content';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+
+  // WhatsApp contact and helper to try app protocol then fallback to web
+  const phoneNumber = '9952833078';
+  const message = encodeURIComponent('Hi Velicham Team, I would like to know more about your services.');
+  const href = `https://wa.me/91${phoneNumber}?text=${message}`;
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const appUrl = `whatsapp://send?phone=91${phoneNumber}&text=${message}`;
+    try {
+      const newWindow = window.open(appUrl, '_self');
+      setTimeout(() => window.open(href, '_blank'), 600);
+      if (newWindow) return;
+    } catch (err) {
+      setTimeout(() => window.open(href, '_blank'), 200);
+    }
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -68,7 +85,8 @@ const Header = () => {
                 <FiFacebook className="h-5 w-5" />
               </a>
               <a
-                href="https://wa.me/919952833078"
+                href={href}
+                onClick={handleClick}
                 aria-label="WhatsApp"
                 className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]"
                 target="_blank"
@@ -122,7 +140,7 @@ const Header = () => {
                 <a href="https://www.facebook.com/share/1FAhQveUHo/" aria-label="Facebook" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
                   <FiFacebook className="h-5 w-5" />
                 </a>
-                <a href="https://wa.me/919952833078" aria-label="WhatsApp" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
+                <a href={href} onClick={handleClick} aria-label="WhatsApp" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
                   <FiMessageCircle className="h-5 w-5" />
                 </a>
               </div>

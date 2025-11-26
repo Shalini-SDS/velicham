@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-11-25T08:15:10.847Z",
+  "name": "Test User",
+  "email": "test@example.com",
+  "phone": "1234567890",
+  "childName": "Test Child",
+  "childAge": "5",
+  "competition": "First Competition - Dec 7th"
+}
