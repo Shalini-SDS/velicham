@@ -140,11 +140,11 @@ const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.5, opacity: 0, y: 50 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden"
+            className="relative bg-white rounded-3xl shadow-2xl w-full mx-4 overflow-hidden max-h-[90vh] sm:max-w-md"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header with gradient */}
-            <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 p-6 text-white text-center">
+            <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 p-4 sm:p-6 text-white text-center">
               <motion.h2
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -164,7 +164,7 @@ const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-4 sm:p-6 overflow-y-auto max-h-[70vh]">
               {!showForm ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
