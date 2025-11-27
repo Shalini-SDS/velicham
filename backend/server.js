@@ -31,6 +31,11 @@ if (!fs.existsSync(uploadsDir)) {
 // Serve uploads folder
 app.use('/uploads', express.static(uploadsDir));
 
+// Serve admin dashboard
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin-dashboard.html'));
+});
+
 app.use('/api/enquiry', enquiryRoutes);
 app.use('/api/photos', photosRoutes);
 app.use('/api/photos', uploadRoutes); // upload at /api/photos/upload
