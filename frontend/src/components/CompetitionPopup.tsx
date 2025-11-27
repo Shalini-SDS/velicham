@@ -1,58 +1,38 @@
-import { useState } from 'react';
+import { useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { apiFetch } from '../lib/api';
-
-type EnrollmentForm = {
-  name: string;
-  email: string;
-  phone: string;
-  childName: string;
-  childAge: string;
-};
 
 const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState<EnrollmentForm>({
-    name: '',
-    email: '',
-    phone: '',
-    childName: '',
-    childAge: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
+  const openMap = useCallback(() => {
+    const address = `18, Haridasspuram Main Rd, MC Nagar, Hasthinapuram, Chitlapakkam, Chennai, Tamil Nadu 600064`;
+    const encoded = encodeURIComponent(address);
+    const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+    const appleUrl = `maps://?q=${encoded}`; // Apple Maps
+    const geoUrl = `geo:0,0?q=${encoded}`; // Android native geo intent
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
     try {
-      const res = await apiFetch('/competition-enrollment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      });
-      if (!res.ok) throw new Error('Failed');
-      setSubmitted(true);
-      setTimeout(() => {
-        onClose();
-        setShowForm(false);
-        setSubmitted(false);
-        setForm({ name: '', email: '', phone: '', childName: '', childAge: '' });
-      }, 3000);
-    } catch (error) {
-      console.error('Enrollment failed:', error);
-      setSubmitted(true);
-      setTimeout(() => {
-        onClose();
-        setShowForm(false);
-        setSubmitted(false);
-        setForm({ name: '', email: '', phone: '', childName: '', childAge: '' });
-      }, 3000);
+      const ua = navigator.userAgent || '';
+      const isIOS = /iPhone|iPad|iPod/.test(ua) && !/Windows/.test(ua);
+      const isAndroid = /Android/.test(ua);
+
+      if (isIOS) {
+        // Try opening Apple Maps first; fallback to Google Maps web
+        window.location.href = appleUrl;
+        setTimeout(() => window.open(googleUrl, '_blank', 'noopener,noreferrer'), 800);
+      } else if (isAndroid) {
+        // Try native geo intent which opens Google Maps app; fallback to web
+        window.location.href = geoUrl;
+        setTimeout(() => window.open(googleUrl, '_blank', 'noopener,noreferrer'), 800);
+      } else {
+        // Desktop / unknown: open Google Maps web
+        window.open(googleUrl, '_blank', 'noopener,noreferrer');
+      }
+    } catch (err) {
+      // On any error, open the web link
+      window.open(googleUrl, '_blank', 'noopener,noreferrer');
     }
-  };
+
+    onClose();
+  }, [onClose]);
 
   // Generate random positions for crackers and bubbles
   const crackers = Array.from({ length: 8 }, (_, i) => ({
@@ -165,168 +145,46 @@ const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
 
             {/* Content */}
             <div className="p-4 sm:p-6 overflow-y-auto max-h-[70vh]">
-              {!showForm ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-center"
-                >
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                      Join Our Amazing Competition!
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      Showcase your child's talent and creativity. Special prizes for winners!
-                    </p>
-                    <div className="bg-blue-50 p-4 rounded-lg mb-4">
-                      <p className="text-sm text-blue-800">
-                        📍 Visit our address for entry card and complete details
-                      </p>
-                    </div>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setShowForm(true)}
-                    className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Enroll Now! 🚀
-                  </motion.button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  onSubmit={handleSubmit}
-                  className="space-y-4"
-                >
-                  <h3 className="text-xl font-semibold text-center text-gray-800 mb-4">
-                    Enrollment Form
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-center"
+              >
+                <div className="mb-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                    Visit Our Centre
                   </h3>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Parent/Guardian Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Enter your name"
-                    />
+                  <p className="text-gray-600 mb-4">
+                    We'd love to meet you! Visit us for entry cards and complete details.
+                  </p>
+                  <div className="bg-blue-50 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-blue-800">
+                      📍 18, Haridasspuram Main Rd, MC Nagar, Hasthinapuram, Chitlapakkam, Chennai, Tamil Nadu 600064
+                    </p>
                   </div>
+                </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Your phone number"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Child's Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="childName"
-                      value={form.childName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Child's name"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Child's Age *
-                    </label>
-                    <input
-                      type="text"
-                      name="childAge"
-                      value={form.childAge}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="e.g., 5 years"
-                    />
-                  </div>
-
-                  <div className="flex gap-3 pt-4">
-                    <motion.button
-                      type="button"
-                      onClick={() => setShowForm(false)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg font-medium hover:bg-gray-300 transition-colors"
-                    >
-                      Back
-                    </motion.button>
-                    <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      Submit Enrollment
-                    </motion.button>
-                  </div>
-                </motion.form>
-              )}
-
-              {submitted && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-center"
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={openMap}
+                  className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <motion.p
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-green-800 font-semibold"
-                  >
-                    ✅ Enrollment submitted successfully! We'll contact you soon.
-                  </motion.p>
-                </motion.div>
-              )}
+                  Visit Us 📍
+                </motion.button>
+              </motion.div>
             </div>
 
-            {/* Close button */}
+            {/* Close button (styled for visibility) */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={onClose}
-              className="absolute top-4 right-4 text-white hover:text-gray-200 text-2xl"
+              aria-label="Close"
+              title="Close"
+              className="absolute top-4 right-4 bg-white/95 text-gray-800 hover:bg-white p-1.5 rounded-full shadow-md w-9 h-9 flex items-center justify-center text-xl ring-1 ring-gray-200"
             >
               ×
             </motion.button>

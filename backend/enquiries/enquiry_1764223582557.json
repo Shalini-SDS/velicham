@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-11-27T06:06:22.555Z",
+  "name": "Test Parent",
+  "email": "test@example.com",
+  "phone": "9876543210",
+  "childName": "Test Child",
+  "age": "5",
+  "message": "This is a test enquiry message",
+  "emailStatus": "sent",
+  "emailId": "<295a8709-3390-4852-e4c0-9486c4f72f06@gmail.com>"
+}
