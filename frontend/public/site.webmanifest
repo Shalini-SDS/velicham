@@ -1,0 +1,21 @@
+{
+  "name": "Velicham Preschool & Daycare",
+  "short_name": "Velicham",
+  "description": "Preschool, daycare, evening tuition, and weekend activity programs in Chitlapakkam, Chennai.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff7a3d",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
