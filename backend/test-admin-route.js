@@ -7,7 +7,7 @@ setTimeout(async () => {
     const response = await fetch('http://localhost:5000/admin');
     const html = await response.text();
     
-    if (html.includes('Velicham Enquiry Dashboard')) {
+    if (html.includes('Velicham Preschool & Daycare Enquiry Dashboard')) {
       console.log('✓ Admin dashboard accessible at: http://localhost:5000/admin');
       console.log('✓ HTML content found, size:', html.length, 'bytes');
       console.log('\n✅ SUCCESS - Admin dashboard is served correctly!');

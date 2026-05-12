@@ -12,14 +12,14 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    pass: (process.env.EMAIL_PASS || '').replace(/\s/g, '')
   }
 });
 
 const mailOptions = {
-  from: `Velicham Test <${process.env.EMAIL_USER}>`,
+  from: `Velicham Preschool & Daycare Test <${process.env.EMAIL_USER}>`,
   to: process.env.EMAIL_TO,
-  subject: 'Test Email from Velicham Backend',
+  subject: 'Test Email from Velicham Preschool & Daycare Backend',
   html: `<h2>Test Email</h2>
   <p>This is a test email to verify the email configuration is working.</p>
   <p>Sent at: ${new Date().toLocaleString()}</p>`

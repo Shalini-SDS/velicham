@@ -12,7 +12,7 @@ const WhyChoose = () => (
           viewport={{ once: true }}
           className="tag-pill mx-auto"
         >
-          Why Choose Velicham
+          Why Choose Velicham Preschool & Daycare
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

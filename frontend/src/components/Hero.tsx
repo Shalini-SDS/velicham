@@ -46,7 +46,7 @@ const Hero = () => (
               >
                 <FiStar className="text-yellow-500" size={32} />
               </motion.span>
-              Welcome to Velicham Daycare
+              Welcome to Velicham Preschool & Daycare
               <motion.span
                 animate={{ rotate: [0, -15, 15, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, delay: 0.2 }}
@@ -98,7 +98,7 @@ const Hero = () => (
         <div className="relative rounded-3xl overflow-visible border-4 border-white shadow-2xl">
           <img
             src="/home.jpg"
-            alt="Velicham Daycare Activities"
+            alt="Velicham Preschool & Daycare Activities"
             className="w-full h-auto object-cover rounded-3xl"
           />
         </div>

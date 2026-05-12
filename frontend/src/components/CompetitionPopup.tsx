@@ -124,14 +124,14 @@ const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header with gradient */}
-            <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 p-4 sm:p-6 text-white text-center">
+            <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 p-4 sm:p-6 pr-12 sm:pr-14 text-white text-center">
               <motion.h2
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-2xl font-bold mb-2"
+                className="text-lg sm:text-2xl font-bold mb-2 leading-tight"
               >
-                🎉 Exciting Competition! 🎉
+                🎉 Admission Open 2026–2027 🎉
               </motion.h2>
               <motion.p
                 initial={{ y: -20, opacity: 0 }}
@@ -139,7 +139,7 @@ const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 transition={{ delay: 0.3 }}
                 className="text-lg"
               >
-                First Competition: Dec 7th
+                Enroll Your Little One Today!
               </motion.p>
             </div>
 
@@ -156,7 +156,7 @@ const CompetitionPopup = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                     Visit Our Centre
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    We'd love to meet you! Visit us for entry cards and complete details.
+                    We'd love to welcome you! Visit us for admissions, enquiry, and complete details.
                   </p>
                   <div className="bg-blue-50 p-4 rounded-lg mb-4">
                     <p className="text-sm text-blue-800">

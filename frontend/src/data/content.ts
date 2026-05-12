@@ -43,7 +43,7 @@ type ProgramCard = {
   ageRange: string;
   description: string;
   icon: IconType;
-  accent: 'aqua' | 'gold' | 'blush';
+  accent: 'aqua' | 'gold' | 'blush' | 'sunset' | 'orchid' | 'sky' | 'forest';
   image: string;
 };
 
@@ -73,6 +73,45 @@ export const programs: ProgramCard[] = [
     icon: FiStar,
     accent: 'gold',
     image: '/weekend.jpg'
+  }
+];
+
+export const preschoolPrograms: ProgramCard[] = [
+  {
+    title: 'Little Rays – Playgroup',
+    ageRange: 'Ages 1.5 – 3 years',
+    description:
+      'A joyful first learning experience filled with play, music, storytelling, movement activities, and social interaction to build confidence and communication skills.',
+    icon: FiSmile,
+    accent: 'sunset',
+    image: '/kids-at-velicham.jpg'
+  },
+  {
+    title: 'Sparkle Stars – Pre-K.G',
+    ageRange: 'Ages 3 – 4 years',
+    description:
+      'Interactive learning through phonics, rhymes, creative activities, early writing, and fun-based education that develops curiosity and imagination.',
+    icon: FiStar,
+    accent: 'orchid',
+    image: '/home.jpg'
+  },
+  {
+    title: 'Rising Lights – L.K.G',
+    ageRange: 'Ages 4 – 5 years',
+    description:
+      'A strong academic foundation with language development, number skills, handwriting practice, communication activities, and personality-building exercises.',
+    icon: FiBook,
+    accent: 'sky',
+    image: '/lkg.jpeg'
+  },
+  {
+    title: 'Bright Minds – U.K.G',
+    ageRange: 'Ages 5 – 6 years',
+    description:
+      'Advanced kindergarten learning focused on reading, writing, problem-solving, creativity, teamwork, and school readiness for primary education.',
+    icon: FiSun,
+    accent: 'forest',
+    image: '/ukg.jpeg'
   }
 ];
 
@@ -164,12 +203,12 @@ export const dailySchedule = [
 ];
 
 export const galleryImages = [
-  'https://images.unsplash.com/photo-1604881988758-f76ad8556b36?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1611659934315-6ddc0d3c92b0?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&w=900&q=80'
+  '/gal1.jpeg',
+  '/gal2.jpeg',
+  '/gal3.jpeg',
+  '/gal4.jpeg',
+  '/gal5.jpeg',
+  '/gal6.jpeg'
 ];
 
 type Testimonial = {

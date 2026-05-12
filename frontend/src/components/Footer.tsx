@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
 import { navLinks, programs, contactDetails } from '../data/content';
 
+const footerPrograms = [
+  ...programs.map((program) => program.title),
+  'Playgroup',
+  'Pre-KG',
+  'LKG',
+  'UKG',
+];
+
 const Footer = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -58,7 +66,7 @@ const Footer = () => {
       >
         <div className="grid gap-10 md:gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <motion.div variants={itemVariants}>
-            <h3 className="font-display text-xl">Velicham Daycare</h3>
+            <h3 className="font-display text-xl">Velicham Preschool & Daycare</h3>
             <p className="mt-2 text-white/85">Where Little Hearts Play, Learn, and Grow Every Day</p>
           </motion.div>
           <motion.div variants={itemVariants}>
@@ -86,16 +94,16 @@ const Footer = () => {
           <motion.div variants={itemVariants}>
             <h4 className="mb-3 font-semibold">Our Programs</h4>
             <ul className="space-y-2 text-white/90">
-              {programs.map((p, i) => (
+              {footerPrograms.map((programTitle, i) => (
                 <motion.li 
-                  key={p.title}
+                  key={programTitle}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
                   className="transition-colors duration-300 hover:text-white hover:translate-x-1"
                 >
-                  {p.title}
+                  {programTitle}
                 </motion.li>
               ))}
             </ul>
@@ -152,7 +160,7 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          © 2025 Velicham Daycare. All rights reserved.
+          © 2025 Velicham Preschool & Daycare. All rights reserved.
         </motion.div>
       </motion.div>
     </footer>

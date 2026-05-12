@@ -15,7 +15,7 @@ const Header = () => {
 
   // WhatsApp contact and helper to try app protocol then fallback to web
   const phoneNumber = '9952833078';
-  const message = encodeURIComponent('Hi Velicham Team, I would like to know more about your services.');
+  const message = encodeURIComponent('Hi Velicham Preschool & Daycare Team, I would like to know more about your services.');
   const href = `https://wa.me/91${phoneNumber}?text=${message}`;
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -37,11 +37,11 @@ const Header = () => {
           <div className="flex items-center gap-2 flex-shrink-0">
             <img
               src={logoUrl}
-              alt="Velicham Daycare"
+              alt="Velicham Preschool & Daycare"
               className="h-12 w-12 lg:h-14 lg:w-14 rounded object-cover transition-all hover:scale-110"
             />
             <div className="hidden sm:block whitespace-nowrap">
-              <p className="font-comfortaa text-lg lg:text-2xl font-bold leading-tight text-white">Velicham Daycare</p>
+              <p className="font-comfortaa text-lg lg:text-2xl font-bold leading-tight text-white">Velicham Preschool & Daycare</p>
             </div>
           </div>
           <nav className="hidden lg:flex items-center gap-6 flex-1 justify-center px-8">
@@ -58,7 +58,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-5 flex-shrink-0">
             <div className="flex items-center gap-3 text-white">
               <a
-                href="https://www.instagram.com/velicham_daycare"
+                href="https://www.instagram.com/velicham_preschool_and_daycare/"
                 aria-label="Instagram"
                 className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]"
                 target="_blank"
@@ -131,7 +131,7 @@ const Header = () => {
                 Enquiry
               </a>
               <div className="flex items-center justify-center gap-6 text-white pt-4">
-                <a href="https://www.instagram.com/velicham_daycare" aria-label="Instagram" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/velicham_preschool_and_daycare/" aria-label="Instagram" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">
                   <FiInstagram className="h-5 w-5" />
                 </a>
                 <a href="https://youtube.com/@velichamdaycare?si=k_xM28rPtlVtuJI4" aria-label="YouTube" className="transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_8px_#FF5C0A]" target="_blank" rel="noopener noreferrer">

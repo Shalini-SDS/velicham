@@ -52,7 +52,7 @@ const Schedule = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            A Day at <span className="text-accent-gold">Velicham</span>
+            A Day at <span className="text-accent-gold">Velicham Preschool & Daycare</span>
           </motion.h2>
           <p className="mx-auto mt-2 max-w-2xl text-brand-900/75">
             Every day is filled with fun, learning, and new adventures!

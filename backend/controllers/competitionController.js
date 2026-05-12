@@ -45,9 +45,9 @@ export async function handleCompetitionEnrollment(req, res) {
       console.log('Attempting to send competition enrollment email to:', toAddress);
 
       const info = await transporter.sendMail({
-        from: `Velicham Website <${process.env.EMAIL_USER}>`,
+        from: `Velicham Preschool & Daycare Website <${process.env.EMAIL_USER}>`,
         to: toAddress,
-        subject: 'New Competition Enrollment from Velicham Website',
+        subject: 'New Competition Enrollment from Velicham Preschool & Daycare Website',
         html: `<h2>New Competition Enrollment</h2>
         <p><strong>Competition:</strong> First Competition - Dec 7th</p>
         <p><strong>Parent Name:</strong> ${name}</p>

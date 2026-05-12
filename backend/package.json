@@ -4,7 +4,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon --ignore enquiries --ignore uploads server.js",
     "start": "node server.js"
   },
   "dependencies": {

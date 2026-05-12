@@ -14,16 +14,16 @@ async function testEmail() {
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        pass: (process.env.EMAIL_PASS || '').replace(/\s/g, '')
       }
     });
 
     console.log('\nAttempting to send test email...');
     
     const info = await transporter.sendMail({
-      from: `Velicham Website <${process.env.EMAIL_USER}>`,
+      from: `Velicham Preschool & Daycare Website <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO,
-      subject: 'Test Email from Velicham - Configuration Check',
+      subject: 'Test Email from Velicham Preschool & Daycare - Configuration Check',
       html: `<h2>Test Email</h2>
       <p>If you received this email, the email configuration is working correctly!</p>
       <p>Sent at: ${new Date().toLocaleString()}</p>`

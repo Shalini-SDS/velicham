@@ -5,7 +5,7 @@ console.log('Verifying Render admin dashboard...\n');
 fetch('https://velicham-backend.onrender.com/admin')
   .then(r => r.text())
   .then(text => {
-    if (text.includes('Velicham Enquiry Dashboard')) {
+    if (text.includes('Velicham Preschool & Daycare Enquiry Dashboard')) {
       console.log('✅ SUCCESS - Admin dashboard is LIVE!');
       console.log('\n📱 Access URL:');
       console.log('   https://velicham-backend.onrender.com/admin');

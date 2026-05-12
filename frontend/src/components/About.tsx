@@ -39,7 +39,7 @@ const About = () => (
             viewport={{ once: true }}
             className="tag-pill bg-white/80"
           >
-            About Velicham
+            About Velicham Preschool & Daycare
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ const About = () => (
             transition={{ delay: 0.2 }}
             className="text-lg text-brand-900/80 max-w-2xl"
           >
-            At Velicham Daycare, we believe every child deserves a nurturing environment where
+            At Velicham Preschool & Daycare, we believe every child deserves a nurturing environment where
             they can explore, learn, and develop at their own pace. Our experienced educators create a warm,
             safe space filled with joy and discovery.
           </motion.p>

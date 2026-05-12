@@ -2,6 +2,25 @@ import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 
+const getEmailPassword = () => (process.env.EMAIL_PASS || '').replace(/\s/g, '');
+
+const createEmailTransporter = () => nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: getEmailPassword()
+  }
+});
+
+const escapeHtml = (value = '') => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
 export async function getEnquiries(req, res) {
   try {
     const enquiriesDir = path.join(process.cwd(), 'enquiries');
@@ -109,38 +128,33 @@ export async function sendEnquiry(req, res) {
     if (process.env.EMAIL_ENABLED !== 'false') {
       const toAddress = process.env.EMAIL_TO || 'vdps2k25@gmail.com';
       
-      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      if (!process.env.EMAIL_USER || !getEmailPassword()) {
         console.error('✗ Email credentials missing - EMAIL_USER or EMAIL_PASS not set');
         enquiryData.emailStatus = 'failed_no_credentials';
         fs.writeFileSync(enquiryFile, JSON.stringify(enquiryData, null, 2));
-        return res.status(200).json({ 
-          success: true, 
+        return res.status(500).json({
+          success: false,
           message: 'Enquiry saved but email not sent - missing credentials',
           emailSent: false
         });
       }
       
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS
-        }
-      });
+      const transporter = createEmailTransporter();
 
       console.log('Attempting to send email to:', toAddress, 'from:', process.env.EMAIL_USER);
 
       const info = await transporter.sendMail({
-        from: `Velicham Website <${process.env.EMAIL_USER}>`,
+        from: `Velicham Preschool & Daycare Website <${process.env.EMAIL_USER}>`,
         to: toAddress,
-        subject: 'New Enquiry from Velicham Website',
+        replyTo: email,
+        subject: 'New Enquiry from Velicham Preschool & Daycare Website',
         html: `<h2>New Enquiry Received</h2>
-        <p><strong>Parent Name:</strong> ${name}</p>
-        <p><strong>Child Name:</strong> ${childName || '-'}</p>
-        <p><strong>Child Age:</strong> ${age || '-'}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
-        <p><strong>Message:</strong><br/>${(message || '-').replace(/\n/g, '<br>')}</p>
+        <p><strong>Parent Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Child Name:</strong> ${escapeHtml(childName || '-')}</p>
+        <p><strong>Child Age:</strong> ${escapeHtml(age || '-')}</p>
+        <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+        <p><strong>Phone:</strong> <a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a></p>
+        <p><strong>Message:</strong><br/>${escapeHtml(message || '-').replace(/\n/g, '<br>')}</p>
         <hr/>
         <p style="font-size: 12px; color: #666;">Sent on: ${new Date().toLocaleString()}</p>`
       });
@@ -166,8 +180,8 @@ export async function sendEnquiry(req, res) {
     enquiryData.error = err.message;
     fs.writeFileSync(errorFile, JSON.stringify(enquiryData, null, 2));
     
-    return res.status(200).json({ 
-      success: true, 
+    return res.status(502).json({
+      success: false,
       message: 'Enquiry saved but email failed to send',
       emailSent: false,
       error: err.message

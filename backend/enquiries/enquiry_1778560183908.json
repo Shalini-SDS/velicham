@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-05-12T04:29:43.908Z",
+  "name": "Reset Test",
+  "email": "test@example.com",
+  "phone": "9999999999",
+  "childName": "Test Child",
+  "age": "3",
+  "message": "Testing reset issue",
+  "emailStatus": "pending"
+}

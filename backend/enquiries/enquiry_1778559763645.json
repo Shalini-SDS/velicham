@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-05-12T04:22:43.642Z",
+  "name": "Frontend Test",
+  "email": "test@example.com",
+  "phone": "9999999999",
+  "childName": "Test Child",
+  "age": "3 years",
+  "message": "Testing enquiry mail after backend restart",
+  "emailStatus": "sent",
+  "emailId": "<6b8be37c-73aa-466d-a716-288c448b7e43@gmail.com>"
+}

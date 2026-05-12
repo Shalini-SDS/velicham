@@ -4,7 +4,7 @@ import { FiMessageCircle } from 'react-icons/fi';
 const FloatingWhatsapp = () => {
   // Use the exact phone number as requested: 9952833078
   const phoneNumber = '9952833078';
-  const message = encodeURIComponent('Hi Velicham Team, I would like to know more about your services.');
+  const message = encodeURIComponent('Hi Velicham Preschool & Daycare Team, I would like to know more about your services.');
   const href = `https://wa.me/91${phoneNumber}?text=${message}`;
 
   // Try opening WhatsApp desktop/mobile app first using the protocol handler,
